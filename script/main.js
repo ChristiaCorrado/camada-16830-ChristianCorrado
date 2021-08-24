@@ -26,16 +26,38 @@ function loginProfesor(){
     
     let  profesor1 = new Profesor(nombre,apellido);
 
-    alert( 'Bienvenido Profesor '+ profesor1.nombre +' ' + profesor1.apellido);   
+    if ((profesor1.nombre === undefined || profesor1.apellido === undefined) || (profesor1.nombre === ' ' || profesor1.apellido === ' ') ) {
+        
+        loginProfesor();
+
+    }else{
+
+    alert( 'Bienvenido Profesor '+ profesor1.nombre +' ' + profesor1.apellido);
+    }
+
+       
 }
 
 loginProfesor();
 
 let alumnosInscriptos = solicitarAlumnos();
 
+validarCantidad();
+
+function validarCantidad(){
+
+    while (alumnosInscriptos === 0 || ' ' || null) {
+        alert('Ingreso la cantidad de 0 (cero) alumnos inscriptos');
+
+        alumnosInscriptos = solicitarAlumnos(); 
+        return alumnosInscriptos;
+    }
+
+}
+
 //funcion registrar alumnos a la clase
 function solicitarAlumnos() {
-    return parseFloat(prompt(`Ingrese la Cantidad de alumnos inscriptos a su curso`));  
+    return parseFloat(prompt(`Ingrese la Cantidad de alumnos inscriptos a su curso (numeros)`));  
 }
 
 
@@ -52,30 +74,34 @@ function agregarAlumnos(){
 //Registro de alumnos
 function registrarAlumnos() {
 
+    
     let confirmacion = confirm( 'Ingreso ' + alumnosInscriptos + ' alumnos inscriptos. Es Correcto?');
 
     console.log(confirmacion);
 
     if(confirmacion){
-        
-         for (let i = 0; i < alumnosInscriptos; i++) {
-             let nombre = prompt('Ingrese el nombre del alumno');
-             let apellido = prompt('Ingrese apellido del alumno');
-             let edad = prompt('Ingrese la edad');
+
+        for (let i = 0; i < alumnosInscriptos; i++) {
+            let nombre = prompt('Ingrese el nombre del alumno');
+            let apellido = prompt('Ingrese apellido del alumno');                let edad = prompt('Ingrese la edad');
 
             nuevoAlumno = new Alumnos(nombre,apellido,edad);
             agregarAlumnos();
             console.log(nuevoAlumno);
             console.log(listaAlumnos);
-         }
+        }
     }
     else{
-        alert('Tiene 48 hs para cargar los alumnos, no lo olvide.');
+
+         alert('Tiene 48 hs para cargar los alumnos, no lo olvide.');
+        
     }
 }
 
-registrarAlumnos();
 
+
+
+registrarAlumnos();
 
 
 while (alumnosInscriptos > 0) {
@@ -89,7 +115,7 @@ while (alumnosInscriptos > 0) {
     else if(alumnosInscriptos > espacioMaximo) {
         let resultado = diferencia(alumnosInscriptos,espacioMaximo);
         alert(`Los alumnos se registraon con exito pero tiene demaciados alumnos inscriptos para esta clase, debera reasignar camada para ${resultado} alumnos`);
-        break;
+        break
     }
     else {
         alert('Excelente!!... el aula esta completa.');
