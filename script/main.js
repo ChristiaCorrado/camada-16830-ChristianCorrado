@@ -98,6 +98,16 @@ while (alumnosInscriptos > 0) {
     
 }
 
-// listaAlumnos.forEach(listaAlumnos => {
-//     console.log(listaAlumnos.nombre + ' ' + listaAlumnos.apellido);
-// });
+listaAlumnos.sort( (a1, a2) => {
+    const apellidoA = a1.apellido.toLowerCase();
+    const apellidoB = a2.apellido.toLowerCase();
+
+    if (apellidoA < apellidoB){
+        return -1;
+    }else if (apellidoA > apellidoB) {
+        return 1;
+    }else{
+        return 0;
+    }
+
+})
