@@ -18,7 +18,7 @@ const listaAlumnos = [];
 const listaProfesor = [];
 
 
-// funcion log de profes
+// funcion login de profes
 function loginProfesor(){
 
     let nombre = prompt('Hola Profesor ingrese su Nombre');
@@ -42,15 +42,15 @@ loginProfesor();
 
 let alumnosInscriptos = solicitarAlumnos();
 
-validarCantidad();
+validarCeroAlumno();
 
-function validarCantidad(){
+function validarCeroAlumno(){
 
-    while (alumnosInscriptos === 0 || ' ' || null) {
+    let alumnosValidados = alumnosInscriptos;
+
+    while (alumnosValidados === 0) {
         alert('Ingreso la cantidad de 0 (cero) alumnos inscriptos');
-
-        alumnosInscriptos = solicitarAlumnos(); 
-        return alumnosInscriptos;
+        return alumnosInscriptos = solicitarAlumnos();
     }
 
 }
