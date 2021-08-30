@@ -1,3 +1,115 @@
 .firstContainer {
     color: white;
 }
+
+.navTop{
+  position: fixed;
+}
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  position: fixed;
+  margin: auto;
+  right: 25%;
+  left: 25%;
+  bottom: 5%;
+  top: 5%;
+  transform: scale(0);
+}
+
+.formLogin h4{
+  color: #0d6efd;
+}
+
+.formLogin {
+  background: #FFFFFF;
+  max-width: 400px;
+  height: 380px;
+  position: relative;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+
+.formLogin input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 80%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.formLogin button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #0d6efd;
+  width: 80%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.formLogin button:hover,.form button:active,.form button:focus {
+  background: #3786fc;
+}
+.show{
+    transform: scale(1);
+    transition: 1s;
+}
+
+.formLogin{
+  display: flex;
+}
+
+.loginTeacher, .loginStudent{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+}
+
+.institutoPic img{
+  width: 100%;
+  height: 100%;
+}
+
+.loginTeacher{
+  transform: rotateY(180deg);
+}
+
+.btnChangeUsers{
+  color: #0d6efd;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.rotate{
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  transition: 2s ease;
+  
+}
+
+.rotateReverse{
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  transition: 2s ease;
+  
+}
+
+.containerInstituto{
+  padding-top: 70px;
+}

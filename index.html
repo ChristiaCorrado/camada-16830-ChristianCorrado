@@ -7,11 +7,12 @@
     <title>Instituto El Superior</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   </head>
   <body>
     <div class="container-fluid bg-dark firstContainer">
-      <nav class="navbar navbar-dark bg-primary">
-        <div class="container">
+      <nav class="navbar navbar-dark bg-primary navTop container-fluid">
+        <div class="container ">
           <a class="navbar-brand" href="#">Instituto Superior</a>
           <div
             class="
@@ -38,30 +39,51 @@
               </div>
             </ul>
             <li class="p-1 navbar-nav">
-              <button href="" class="nav-link btn btn-dark p-1">
-                <strong>Teacher Login</strong>
-              </button>
-            </li>
-            <li class="p-1 navbar-nav">
-              <button href="" class="nav-link btn btn-dark p-1">
-                <strong>Student Login</strong>
+              <button id="btnLogin" onclick="" href="" class="nav-link btn btn-dark p-1">
+                <strong>Login</strong>
               </button>
             </li>
           </div>
         </div>
       </nav>
+      
+      <div id="loginPage" class="login-page ">
+        <div class="formLogin" id="formLogin">
+          
+          <form class="loginTeacher" id="teacher">
+            <h4 class="mt-4">Login Teacher</h4>
+            <input type="text" placeholder="Name"/>
+            <input type="text" placeholder="Surname"/>
+            <button class="mb-3">login</button>
+            <button id="close">Close</button>
+            <p class="mt-3 btnChangeUsers" onclick="" id="teacherUsers" >Student <i class="fas fa-chevron-right changeUsers"></i></p>
+          </form>
 
-      <div class="container">
+          <form class="loginStudent" id="student">
+            <h4 class="mt-4">Login Student</h4>
+            <input type="text" placeholder="Name"/>
+            <input type="text" placeholder="Surname"/>
+            <button class="mb-3">login</button>
+            <button id="close">Close</button>
+            <p class="mt-3 btnChangeUsers" onclick="" id="studentUsers">Teacher <i class="fas fa-chevron-right changeUsers"></i></p>         
+          </form>
+        </div>
+      </div>
+
+      <div class="container containerInstituto">
         <div class="text-center">
           <h1>Welcome to the Instituto Superior</h1>
         </div>
 
-        <div class="text-center">
+
+        <div class="text-center institutoPic">
           <img src="media/institutoSuperior.jpg" alt="" />
         </div>
       </div>
+
     </div>
 
     <script src="script/main.js"></script>
+    <script src="script/clases.js"></script>
   </body>
 </html>

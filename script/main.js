@@ -1,21 +1,7 @@
-class Profesor {
-  constructor(nombre, apellido) {
-    this.nombre = nombre || undefined;
-    this.apellido = apellido || undefined;
-  }
-}
-
-class Alumnos {
-  constructor(nombre, apellido, edad) {
-    this.nombre = nombre || undefined;
-    this.apellido = apellido || undefined;
-    this.edad = edad || edad || undefined;
-  }
-}
-
 let espacioMaximo = 10;
+const asignatura =['Matematica','Biologia','Educacion Fisica','Tecnologia','Literatura','Musica','Historia','Geografia','Quimica','Fisica'];
 const listaAlumnos = [];
-const listaProfesor = [];
+const listaProfesor = ['Christian'];
 
 // funcion login de profes
 function loginProfesor() {
@@ -40,11 +26,9 @@ function loginProfesor() {
   }
 }
 
-loginProfesor();
 
-let alumnosInscriptos = solicitarAlumnos();
+// let alumnosInscriptos = solicitarAlumnos();
 
-validarCeroAlumno();
 
 function validarCeroAlumno() {
     let alumnos = alumnosInscriptos;
@@ -68,7 +52,7 @@ function diferencia(a, b) {
   return a - b;
 }
 
-//funcion agregar al array
+//funcion agregar al array Alumnos
 function agregarAlumnos() {
   listaAlumnos.push(nuevoAlumno);
 }
@@ -97,38 +81,70 @@ function registrarAlumnos() {
   }
 }
 
-registrarAlumnos();
-
-while (alumnosInscriptos >= 0) {
-  if (alumnosInscriptos < espacioMaximo) {
-    let resultado = diferencia(espacioMaximo, alumnosInscriptos);
-    alert(
-      `Se registraron los alumnos con exito cuenta con espacio suficiente para agregar ${resultado} alumnos a la clase`
-    );
-    break;
-  } else if (alumnosInscriptos > espacioMaximo) {
-    let resultado = diferencia(alumnosInscriptos, espacioMaximo);
-    alert(
-      `Los alumnos se registraon con exito pero tiene demaciados alumnos inscriptos para esta clase, debera reasignar camada para ${resultado} alumnos`
-    );
-    break;
-  } else if (alumnosInscriptos === 0) {
-    alert("Cuenta con espacio para 10 alumnos");
-  } else {
-    alert("Excelente!!... el aula esta completa.");
-    break;
+function alertaAlumnosRegistrados() {
+  
+  while (alumnosInscriptos >= 0) {
+    if (alumnosInscriptos < espacioMaximo) {
+      let resultado = diferencia(espacioMaximo, alumnosInscriptos);
+      alert(
+        `Se registraron los alumnos con exito cuenta con espacio suficiente para agregar ${resultado} alumnos a la clase`
+      );
+      break;
+    } else if (alumnosInscriptos > espacioMaximo) {
+      let resultado = diferencia(alumnosInscriptos, espacioMaximo);
+      alert(
+        `Los alumnos se registraon con exito pero tiene demaciados alumnos inscriptos para esta clase, debera reasignar camada para ${resultado} alumnos`
+      );
+      break;
+    } else if (alumnosInscriptos === 0) {
+      alert("Cuenta con espacio para 10 alumnos");
+    } else {
+      alert("Excelente!!... el aula esta completa.");
+      break;
+    }
   }
 }
 
-listaAlumnos.sort((a1, a2) => {
-  const apellidoA = a1.apellido.toLowerCase();
-  const apellidoB = a2.apellido.toLowerCase();
+//ordenar alumnos por apellido
+function orderAlumnos() {
+  listaAlumnos.sort((a1, a2) => {
+    const apellidoA = a1.apellido.toLowerCase();
+    const apellidoB = a2.apellido.toLowerCase();
+  
+    if (apellidoA < apellidoB) {
+      return -1;
+    } else if (apellidoA > apellidoB) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+}
 
-  if (apellidoA < apellidoB) {
-    return -1;
-  } else if (apellidoA > apellidoB) {
-    return 1;
-  } else {
-    return 0;
-  }
-});
+//mostrar Login
+const openLogin = document.getElementById('btnLogin');
+const modalLogin = document.getElementById('loginPage');
+const closeWindow = document.getElementById('close')
+
+
+openLogin.addEventListener('click', ()=>{
+  modalLogin.classList.add('show');
+})
+
+closeWindow.addEventListener('click', ()=>{
+  modalLogin.classList.remove('show');
+})
+
+
+//rotar tarjeta Login
+const loginTeacher = document.getElementById('studentUsers');
+const loginCard = document.getElementById('formLogin')
+const loginStudent = document.getElementById('teacherUsers');
+
+loginTeacher.addEventListener('click', ()=>{
+  loginCard.classList.add('rotate');
+})
+
+loginStudent.addEventListener('click', ()=>{
+  loginCard.classList.remove('rotate');
+})
