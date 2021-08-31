@@ -99,7 +99,7 @@
 .rotate{
   transform: rotateY(180deg);
   transform-style: preserve-3d;
-  transition: 2s ease;
+  transition: 1s ease;
   
 }
 

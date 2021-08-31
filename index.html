@@ -14,14 +14,7 @@
       <nav class="navbar navbar-dark bg-primary navTop container-fluid">
         <div class="container ">
           <a class="navbar-brand" href="#">Instituto Superior</a>
-          <div
-            class="
-              text-center
-              d-flex
-              justify-content-center
-              align-content-center
-            "
-          >
+          <div class="text-center d-flex justify-content-center align-content-center">
             <ul class="navbar-nav">
               <div class="d-flex">
                 <li class="p-1">
@@ -52,9 +45,9 @@
           
           <form class="loginTeacher" id="teacher">
             <h4 class="mt-4">Login Teacher</h4>
-            <input type="text" placeholder="Name"/>
-            <input type="text" placeholder="Surname"/>
-            <button class="mb-3">login</button>
+            <input id="nameTeacher" type="text" placeholder="Name"/>
+            <input id="surnameTeacher" type="text" placeholder="Surname"/>
+            <button id="teacherOk" class="mb-3" onclick="">login</button>
             <button id="close">Close</button>
             <p class="mt-3 btnChangeUsers" onclick="" id="teacherUsers" >Student <i class="fas fa-chevron-right changeUsers"></i></p>
           </form>
@@ -73,6 +66,9 @@
       <div class="container containerInstituto">
         <div class="text-center">
           <h1>Welcome to the Instituto Superior</h1>
+          
+          <h3 id="teacherTitle"></h3>
+
         </div>
 
 

@@ -1,34 +1,34 @@
 let espacioMaximo = 10;
 const asignatura =['Matematica','Biologia','Educacion Fisica','Tecnologia','Literatura','Musica','Historia','Geografia','Quimica','Fisica'];
 const listaAlumnos = [];
-const listaProfesor = ['Christian'];
+const listaProfesor = [];
 
-// funcion login de profes
-function loginProfesor() {
-  let nombre = prompt("Hola Profesor ingrese su Nombre");
-  let apellido = prompt("Ingrese su apellido");
-
-  let profesor1 = new Profesor(nombre, apellido);
-
-  listaProfesor.push(profesor1);
-
-  localStorage.setItem("nombre", JSON.stringify(listaProfesor));
-
-  if (
-    profesor1.nombre === undefined ||
-    profesor1.apellido === undefined ||
-    profesor1.nombre === " " ||
-    profesor1.apellido === " "
-  ) {
-    loginProfesor();
-  } else {
-    alert("Bienvenido Profesor " + profesor1.nombre + " " + profesor1.apellido);
-  }
+function tomarDatos() {
+  nombreProfesor = document.getElementById("nameTeacher").value;
+  apellidoProfesor = document.getElementById("surnameTeacher").value;
 }
 
 
-// let alumnosInscriptos = solicitarAlumnos();
+// funcion login de profes
+function loginProfesor() {
 
+  tomarDatos();
+
+  let contenedor = document.getElementById("teacherTitle");
+
+  //Definimos el innerHTML del elemento con una plantilla de texto
+  contenedor.innerHTML = `<h3>Bienvenido Profesor ${nombreProfesor} ${apellidoProfesor}</h3>`;
+
+}
+
+
+const teacherIsLogin = document.getElementById('teacherOk');
+
+teacherIsLogin.addEventListener('click',()=>{
+  loginProfesor();
+});
+
+// let alumnosInscriptos = solicitarAlumnos();
 
 function validarCeroAlumno() {
     let alumnos = alumnosInscriptos;
