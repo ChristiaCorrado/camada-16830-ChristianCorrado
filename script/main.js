@@ -3,30 +3,55 @@ const asignatura =['Matematica','Biologia','Educacion Fisica','Tecnologia','Lite
 const listaAlumnos = [];
 const listaProfesor = [];
 
-function tomarDatos() {
+//tomar datos de profesor
+function getTeacherData() {
   nombreProfesor = document.getElementById("nameTeacher").value;
   apellidoProfesor = document.getElementById("surnameTeacher").value;
 }
 
+//tomar datos de alumnos
+function getStudentData() {
+  nombreAlumno = document.getElementById("nameStudent").value;
+  apellidoAlumno = document.getElementById("surnameStudent").value;
+}
 
 // funcion login de profes
 function loginProfesor() {
 
-  tomarDatos();
+  getTeacherData();
 
-  let contenedor = document.getElementById("teacherTitle");
+  let contenedor = document.getElementById("userLogin");
 
-  //Definimos el innerHTML del elemento con una plantilla de texto
   contenedor.innerHTML = `<h3>Bienvenido Profesor ${nombreProfesor} ${apellidoProfesor}</h3>`;
 
 }
-
 
 const teacherIsLogin = document.getElementById('teacherOk');
 
 teacherIsLogin.addEventListener('click',()=>{
   loginProfesor();
 });
+
+
+// funcion login de alumnos
+function loginAlumnos() {
+
+  getStudentData();
+
+  let contenedor = document.getElementById("userLogin");
+
+  contenedor.innerHTML = `<h3>Bienvenido Alumno ${nombreAlumno} ${apellidoAlumno}</h3>`;
+
+}
+
+const studentIsLogin = document.getElementById('studentOk');
+
+studentIsLogin.addEventListener('click',()=>{
+  loginAlumnos();
+});
+
+
+
 
 // let alumnosInscriptos = solicitarAlumnos();
 
@@ -124,7 +149,8 @@ function orderAlumnos() {
 //mostrar Login
 const openLogin = document.getElementById('btnLogin');
 const modalLogin = document.getElementById('loginPage');
-const closeWindow = document.getElementById('close')
+const closeWindow = document.getElementById('close');
+const closeWindow2 = document.getElementById('close2');
 
 
 openLogin.addEventListener('click', ()=>{
@@ -135,10 +161,13 @@ closeWindow.addEventListener('click', ()=>{
   modalLogin.classList.remove('show');
 })
 
+closeWindow2.addEventListener('click', ()=>{
+  modalLogin.classList.remove('show');
+})
 
 //rotar tarjeta Login
 const loginTeacher = document.getElementById('studentUsers');
-const loginCard = document.getElementById('formLogin')
+const loginCard = document.getElementById('formLogin');
 const loginStudent = document.getElementById('teacherUsers');
 
 loginTeacher.addEventListener('click', ()=>{
