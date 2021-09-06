@@ -113,3 +113,7 @@
 .containerInstituto{
   padding-top: 70px;
 }
+
+.tachar{
+  text-decoration: line-through!important;
+}

@@ -25,10 +25,10 @@ clickNuevaTarea.addEventListener('click', ()=>{
 
         acumulador+= `<div  class="alert alert-warning  d-flex justify-content-between align-items-center">
 
-        <p class="m-0">Tarea ${e} </p>
+        <p id="tareaCreada" class="m-0">Tarea ${e} </p>
         <div class=" m-0 d-flex align-item-center ">
-          <i class="fas fa-check text-success p-1"></i>
-          <i class="fas fa-times text-danger p-1"></i>
+        <i class="fas fa-check text-success p-1" role="button" onclick="tachar()" id="btnListo"></i>
+        <i class="fas fa-times text-danger p-1" role="button" id="btnEliminar"></i>
         </div>
         </div>`
         
@@ -38,7 +38,12 @@ clickNuevaTarea.addEventListener('click', ()=>{
   
 })
 
-function eliminar(){
+const tachar = ()=>{
 
+    const tareaSeleccionada = document.getElementById("tareaCreada");
+    const accionTachar = document.getElementById("btnListo");
+    
+    accionTachar.addEventListener('click', ()=>{
+        tareaSeleccionada.classList.add('tachar')
+    })
 }
-
