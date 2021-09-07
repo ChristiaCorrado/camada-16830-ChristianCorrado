@@ -3,6 +3,49 @@ const listaAlumnos = [];
 const listaProfesor = [];
 const dias = ['lunes','martes','miercoles','jueves','viernes']
 const listaTarea = [];
+const inputs = document.querySelectorAll('#formLogin input')
+
+
+const validarLogin = (e)=>{
+  switch(e.target.name) {
+    case "nameTeacher":
+      if (e.target.value === '') {
+        document.getElementById("invalidNameTeacher").classList.add("mostrarIncorrecto")
+      }else {
+        document.getElementById("invalidNameTeacher").classList.remove("mostrarIncorrecto")
+      };
+      break;
+
+      case "surnameTeacher":
+        if (e.target.value === '') {
+          document.getElementById("invalidSurnameTeacher").classList.add("mostrarIncorrecto")
+        } else {
+          document.getElementById("invalidSurnameTeacher").classList.remove("mostrarIncorrecto")
+        };
+      break;
+
+      case "nameStudent":
+        if (e.target.value === '') {
+          document.getElementById("invalidNameStudent").classList.add("mostrarIncorrecto")
+        } else {
+          document.getElementById("invalidNameStudent").classList.remove("mostrarIncorrecto")
+        };
+
+      case "surnameStudent":
+        if (e.target.value === '') {
+          document.getElementById("invalidSurnameStudent").classList.add("mostrarIncorrecto")
+        } else {
+          document.getElementById("invalidSurnameStudent").classList.remove("mostrarIncorrecto")
+        };
+
+      break
+  };
+}
+
+inputs.forEach((input)=>{
+  input.addEventListener('keyup', validarLogin)
+  input.addEventListener('blur', validarLogin)
+})
 
 
 //tomar datos de profesorlist
@@ -17,16 +60,6 @@ function getStudentData() {
   apellidoAlumno = document.getElementById("surnameStudent").value;
 }
 
-// funcion login de profes
-function loginProfesor() {
-
-  getTeacherData();
-
-  let contenedor = document.getElementById("userLogin");
-
-  contenedor.innerHTML = `<h3>Bienvenido Profesor ${nombreProfesor} ${apellidoProfesor}</h3>`;
-
-}
 
 const teacherIsLogin = document.getElementById('teacherOk');
 
@@ -35,16 +68,8 @@ teacherIsLogin.addEventListener('click',()=>{
 });
 
 
-// funcion login de alumnos
-function loginAlumnos() {
 
-  getStudentData();
 
-  let contenedor = document.getElementById("userLogin");
-
-  contenedor.innerHTML = `<h3>Bienvenido Alumno ${nombreAlumno} ${apellidoAlumno}</h3>`;
-
-}
 
 
 const studentIsLogin = document.getElementById('studentOk');
@@ -53,26 +78,6 @@ studentIsLogin.addEventListener('click',()=>{
   loginAlumnos();
 });
 
-
-//funcion agregar al array Alumnos
-function agregarAlumnos() {
-  listaAlumnos.push(nuevoAlumno);
-}
-
-//Registro de alumnos
-function registrarAlumnos() {
-
-  if (confirmacion) {
-    for (let i = 0; i < alumnosInscriptos; i++) {
-      let nombre = document.getElementById("nameStudent");
-      let apellido = document.getElementById("surnameAlumno");
-      let dni = document.getElementById("dniStudent")
-
-      nuevoAlumno = new Alumnos(nombre, apellido, edad);
-      agregarAlumnos();
-      console.log(nuevoAlumno);
-    }
-}
 
 //ordenar alumnos por apellido
 function orderStudents() {
@@ -88,7 +93,6 @@ function orderStudents() {
       return 0;
     }
   })
-  }
 }
 
 

@@ -46,4 +46,90 @@ closeWindowR.addEventListener('click', ()=>{
 })
 
 
+//registrarprofesor
 
+function getNewTeacherData() {
+  nombreNewProfesor = document.getElementById("nameRegister").value;
+  apellidoNewProfesor = document.getElementById("surnameRegister").value;
+}
+
+const registrarProfesor= ()=>{
+  nuevoProfesor = new Profesor(nombreNewProfesor, apellidoNewProfesor)
+  listaProfesor.push(nuevoProfesor);
+  console.log(listaProfesor);
+}
+
+const newRegistro = document.getElementById('registerOK');
+
+const selectRProfesor = document.getElementById('selectTeacher');
+
+selectRProfesor.addEventListener('click',()=>{
+  newRegistro.addEventListener('click',()=>{
+    getNewTeacherData()
+    registrarProfesor();
+    localStorage.setItem("profesorRegistrado" , JSON.stringify(listaProfesor))
+  });
+
+})
+
+//logearse funcionando
+function loginProfesor() {
+
+  getTeacherData();
+
+  listaProfesor.find((elemento)=>{
+    console.log(elemento);
+      if (elemento.nombre === nombreProfesor && elemento.apellido === apellidoProfesor) {
+        alert('esta Registrado');
+        window.location.href='pages/teacher.html'
+      } else{
+        alert('No se encuentra Registrado')
+
+      }
+
+  })
+  
+}
+
+//Register Alumno
+function getNewStudentData() {
+  nombreNewStudent = document.getElementById("nameRegister").value;
+  apellidoNewStudent = document.getElementById("surnameRegister").value;
+}
+
+const registrarAlumno= ()=>{
+  nuevoAlumno = new Alumnos(nombreNewStudent, apellidoNewStudent)
+  listaAlumnos.push(nuevoAlumno);
+  console.log(listaAlumnos);
+}
+
+const selectRStudent = document.getElementById('selectStudent');
+
+
+selectRStudent.addEventListener('click',()=>{
+  newRegistro.addEventListener('click',()=>{
+    getNewStudentData()
+    registrarAlumno();
+    localStorage.setItem("alumnoRegistrado" , JSON.stringify(listaAlumnos))
+  });
+
+})
+
+//logearse alumnos
+function loginAlumnos() {
+
+  getStudentData();
+
+  listaAlumnos.find((elemento)=>{
+    console.log(elemento);
+      if (elemento.nombre === nombreAlumno && elemento.apellido === apellidoAlumno) {
+        alert('esta Registrado');
+        window.location.href='pages/student.html'
+      } else{
+        alert('No se encuentra Registrado')
+
+      }
+
+  })
+  
+}

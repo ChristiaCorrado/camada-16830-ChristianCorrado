@@ -50,17 +50,26 @@
           
           <form class="loginTeacher" id="teacher" onsubmit="event.preventDefault()">
             <h4 class="mt-4">Login Teacher</h4>
-            <input id="nameTeacher" type="text" placeholder="Name"/>
-            <input id="surnameTeacher" type="text" placeholder="Surname"/>
-            <button id="teacherOk" class="mb-3" type="submit" ><a href="pages/teacher.html">login</a></button>
+
+            <input id="nameTeacher" class="m-0" type="text" name="nameTeacher" placeholder="Name"/>
+            <p id="invalidNameTeacher" class="invalid">Please enter name.</p>
+
+            <input id="surnameTeacher" class="m-0" type="text" name="surnameTeacher" placeholder="Surname"/>
+            <p id="invalidSurnameTeacher" class="invalid">Please enter surname.</p>
+            <button id="teacherOk" class="mb-3" type="submit" >login</button>
             <button id="close">Close</button>
             <p class="mt-3 btnChangeUsers"  id="teacherUsers" >Student <i class="fas fa-chevron-right changeUsers"></i></p>
           </form>
 
           <form class="loginStudent" id="student" onsubmit="event.preventDefault()">
             <h4 class="mt-4">Login Student</h4>
-            <input id="nameStudent" type="text" placeholder="Name"/>
-            <input id="surnameStudent" type="text" placeholder="Surname"/>
+
+            <input id="nameStudent" class="m-0" type="text" name="nameStudent" placeholder="Name"/>
+            <p id="invalidNameStudent" class="invalid">Please enter name.</p>
+
+            <input id="surnameStudent" class="m-0" type="text" name="surnameStudent" placeholder="Surname"/>
+            <p id="invalidSurnameStudent" class="invalid">Please enter surname.</p>
+
             <button id="studentOk" class="mb-3"><a href="pages/student.html">login</a></button>
             <button id="close2">Close</button>
             <p class="mt-3 btnChangeUsers"  id="studentUsers">Teacher <i class="fas fa-chevron-right changeUsers"></i></p>         
@@ -71,18 +80,19 @@
       <div id="registerPage" class="login-page">
 
         <div class="formLogin" id="formRegister">
-          <form class="registerForm" id="register" >
+
+          <form class="registerForm" id="register" onsubmit="event.preventDefault()">
             <h4>Register</h4>
-            <div class="d-flex align-items-center justify-content-center" >
-              <div class="form-check">
-                <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1" style="color:black">
+            <div class="d-flex align-items-center justify-content-around" >
+              <div>
+                <input type="radio" name="radioRegister" id="selectTeacher">
+                <label class="form-check-label" for="selectTeacher" style="color:black">
                   Teacher
                 </label>
               </div>
-              <div class="form-check">
-                <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2 " style="color:black">
+              <div>
+                <input type="radio" name="radioRegister" id="selectStudent" checked>
+                <label class="form-check-label" for="selectStudent" style="color:black">
                   Student
                 </label>
               </div>
