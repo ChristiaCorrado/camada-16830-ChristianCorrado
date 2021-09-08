@@ -111,6 +111,8 @@ const newArray = []
 console.log
 //logearse alumnos
 function loginAlumnos() {
+  var local = localStorage.getItem("alumnoRegistrado")
+  console.log(local);
   if (localStorage.getItem("alumnoRegistrado")) {
 
     alert("no esta en el storage");
@@ -136,7 +138,7 @@ function loginAlumnos() {
   } 
   {
     getStudentData();
-    
+
     listaAlumnos.find((elemento) => {
       console.log(elemento);
       if (
