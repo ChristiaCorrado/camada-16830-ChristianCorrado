@@ -107,22 +107,37 @@ selectRStudent.addEventListener("click", () => {
   });
 });
 
-const obtenerLocalStorage = (persona) => {
-  let newArray = JSON.parse(localStorage.getItem(persona));
-};
+const newArray = []
 console.log
 //logearse alumnos
 function loginAlumnos() {
   if (localStorage.getItem("alumnoRegistrado")) {
-    alert("");
+
+    alert("no esta en el storage");
 
 
   } else {
-    obtenerLocalStorage("alumnoRegistrado")
-    console.log(localStorage.getItem("alumnoRegistrado"));
-    getStudentData();
 
+    newArray.push(JSON.parse(localStorage.getItem(persona)))
+
+    
     newArray.find((elemento) => {
+      console.log(elemento);
+      if (
+        elemento.nombre === nombreAlumno &&
+        elemento.apellido === apellidoAlumno
+      ) {
+        alert("esta Registrado");
+        window.location.href = "pages/student.html";
+      } else {
+        alert("No se encuentra Registrado");
+      }
+    });
+  } 
+  {
+    getStudentData();
+    
+    listaAlumnos.find((elemento) => {
       console.log(elemento);
       if (
         elemento.nombre === nombreAlumno &&
