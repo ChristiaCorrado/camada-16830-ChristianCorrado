@@ -68,10 +68,6 @@ teacherIsLogin.addEventListener('click',()=>{
 });
 
 
-
-
-
-
 const studentIsLogin = document.getElementById('studentOk');
 
 studentIsLogin.addEventListener('click',()=>{
