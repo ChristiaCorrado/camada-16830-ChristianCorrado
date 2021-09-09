@@ -68,21 +68,33 @@ selectRProfesor.addEventListener("click", () => {
 });
 
 //logearse funcionando
-function loginProfesor() {
-  getTeacherData();
 
-  listaProfesor.find((elemento) => {
-    console.log(elemento);
-    if (
-      elemento.nombre === nombreProfesor &&
-      elemento.apellido === apellidoProfesor
-    ) {
-      alert("esta Registrado");
-      window.location.href = "pages/teacher.html";
-    } else {
-      alert("No se encuentra Registrado");
-    }
-  });
+function loginProfesor() {
+
+  if (!localStorage.getItem("profesorRegistrado")) {
+
+    alert("no esta en el storage");
+
+
+  } else if (localStorage.getItem("profesorRegistrado")) {
+
+    getTeacherList()      
+
+    getTeacherData()
+    
+    newArrayTeacher.find((elemento) => {
+      console.log(elemento);
+      if (elemento.nombre === nombreProfesor &&
+        elemento.apellido === apellidoProfesor
+      ) {
+        alert("esta Registrado");
+        window.location.href = "pages/teacher.html";
+      } else {
+        alert("No se encuentra Registrado");
+      }
+    });
+  } 
+  
 }
 
 //Register Alumno
@@ -107,26 +119,24 @@ selectRStudent.addEventListener("click", () => {
   });
 });
 
-const newArray = []
-console.log
 //logearse alumnos
+
 function loginAlumnos() {
-  var local = localStorage.getItem("alumnoRegistrado")
-  console.log(local);
-  if (localStorage.getItem("alumnoRegistrado")) {
+
+  if (!localStorage.getItem("alumnoRegistrado")) {
 
     alert("no esta en el storage");
 
 
-  } else {
+  } else if (localStorage.getItem("alumnoRegistrado")) {
 
-    newArray.push(JSON.parse(localStorage.getItem(persona)))
+    getStudentList()
 
+    getStudentData()
     
     newArray.find((elemento) => {
       console.log(elemento);
-      if (
-        elemento.nombre === nombreAlumno &&
+      if (elemento.nombre === nombreAlumno &&
         elemento.apellido === apellidoAlumno
       ) {
         alert("esta Registrado");
@@ -135,21 +145,27 @@ function loginAlumnos() {
         alert("No se encuentra Registrado");
       }
     });
-  } 
-  {
-    getStudentData();
-
-    listaAlumnos.find((elemento) => {
-      console.log(elemento);
-      if (
-        elemento.nombre === nombreAlumno &&
-        elemento.apellido === apellidoAlumno
-      ) {
-        alert("esta Registrado");
-        window.location.href = "pages/student.html";
-      } else {
-        alert("No se encuentra Registrado");
-      }
-    });
+  
   }
+}
+
+
+const getStudentList = ()=>{
+  let listaLocalStudent = localStorage.getItem("alumnoRegistrado")
+  if (listaLocalStudent == null) {
+    newArray = [];
+  }else{
+    newArray = JSON.parse(listaLocalStudent) 
+  }
+  return newArray;
+}
+
+const getTeacherList = ()=>{
+  let listaLocalTeacher = localStorage.getItem("profesorRegTeacher")
+  if (listaLocalTeacher == null) {
+    newArrayTeacher = [];
+  }else{
+    newArrayTeacher = JSON.parse(listaLocalTeacher) 
+  }
+  return newArrayTeacher;
 }
