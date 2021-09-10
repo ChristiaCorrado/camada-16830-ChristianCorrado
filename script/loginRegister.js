@@ -55,36 +55,42 @@ const registrarProfesor = () => {
   console.log(listaProfesor);
 };
 
-const newRegistro = document.getElementById("registerOK");
 
-const selectRProfesor = document.getElementById("selectTeacher");
+const selectElement = document.querySelector('.selectE');
 
-selectRProfesor.addEventListener("click", () => {
-  newRegistro.addEventListener("click", () => {
+
+let resultE = ''
+
+selectElement.addEventListener('change', (event) => {
+  let result = event.target.value
+  resultE = result
+});
+
+const registrar = ()=>{
+  if (resultE === 'student') {
+    getNewStudentData();
+    registrarAlumno();
+    localStorage.setItem("alumnoRegistrado", JSON.stringify(listaAlumnos));
+  }else{
     getNewTeacherData();
     registrarProfesor();
     localStorage.setItem("profesorRegistrado", JSON.stringify(listaProfesor));
-  });
-});
+  }
+}
 
 //logearse funcionando
-
 function loginProfesor() {
-
   if (!localStorage.getItem("profesorRegistrado")) {
-
     alert("no esta en el storage");
-
-
   } else if (localStorage.getItem("profesorRegistrado")) {
+    getTeacherList();
 
-    getTeacherList()      
+    getTeacherData();
 
-    getTeacherData()
-    
     newArrayTeacher.find((elemento) => {
       console.log(elemento);
-      if (elemento.nombre === nombreProfesor &&
+      if (
+        elemento.nombre === nombreProfesor &&
         elemento.apellido === apellidoProfesor
       ) {
         alert("esta Registrado");
@@ -93,50 +99,36 @@ function loginProfesor() {
         alert("No se encuentra Registrado");
       }
     });
-  } 
-  
+  }
 }
 
 //Register Alumno
 function getNewStudentData() {
-  nombreNewStudent = document.getElementById("nameRegister").value;
-  apellidoNewStudent = document.getElementById("surnameRegister").value;
+  nombreNewStudent = $("#nameRegister").val();
+  
+  apellidoNewStudent =  $("#surnameRegister").val();
 }
 
 const registrarAlumno = () => {
-  nuevoAlumno = new Alumnos(nombreNewStudent, apellidoNewStudent);
+  nuevoAlumno = new Alumnos($("#nameRegister").val(), $("#surnameRegister").val());
   listaAlumnos.push(nuevoAlumno);
   console.log(listaAlumnos);
 };
 
-const selectRStudent = document.getElementById("selectStudent");
-
-selectRStudent.addEventListener("click", () => {
-  newRegistro.addEventListener("click", () => {
-    getNewStudentData();
-    registrarAlumno();
-    localStorage.setItem("alumnoRegistrado", JSON.stringify(listaAlumnos));
-  });
-});
-
 //logearse alumnos
 
 function loginAlumnos() {
-
   if (!localStorage.getItem("alumnoRegistrado")) {
-
     alert("no esta en el storage");
-
-
   } else if (localStorage.getItem("alumnoRegistrado")) {
+    getStudentList();
 
-    getStudentList()
+    getStudentData();
 
-    getStudentData()
-    
     newArray.find((elemento) => {
       console.log(elemento);
-      if (elemento.nombre === nombreAlumno &&
+      if (
+        elemento.nombre === nombreAlumno &&
         elemento.apellido === apellidoAlumno
       ) {
         alert("esta Registrado");
@@ -145,27 +137,25 @@ function loginAlumnos() {
         alert("No se encuentra Registrado");
       }
     });
-  
   }
 }
 
-
-const getStudentList = ()=>{
-  let listaLocalStudent = localStorage.getItem("alumnoRegistrado")
+const getStudentList = () => {
+  let listaLocalStudent = localStorage.getItem("alumnoRegistrado");
   if (listaLocalStudent == null) {
     newArray = [];
-  }else{
-    newArray = JSON.parse(listaLocalStudent) 
+  } else {
+    newArray = JSON.parse(listaLocalStudent);
   }
   return newArray;
-}
+};
 
-const getTeacherList = ()=>{
-  let listaLocalTeacher = localStorage.getItem("profesorRegTeacher")
+const getTeacherList = () => {
+  let listaLocalTeacher = localStorage.getItem("profesorRegTeacher");
   if (listaLocalTeacher == null) {
     newArrayTeacher = [];
-  }else{
-    newArrayTeacher = JSON.parse(listaLocalTeacher) 
+  } else {
+    newArrayTeacher = JSON.parse(listaLocalTeacher);
   }
   return newArrayTeacher;
-}
+};
