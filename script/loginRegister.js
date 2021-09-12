@@ -1,20 +1,23 @@
-//mostrar Login
-const openLogin = document.getElementById("btnLogin");
-const modalLogin = document.getElementById("loginPage");
-const closeWindow = document.getElementById("close");
-const closeWindow2 = document.getElementById("close2");
 
-openLogin.addEventListener("click", () => {
-  modalLogin.classList.add("show");
-});
+$('#btnLogin').on('click', function () {
+  $('#loginPage').toggle(500)
+})
 
-closeWindow.addEventListener("click", () => {
-  modalLogin.classList.remove("show");
-});
+$('#btnRegister').on('click', function () {
+  $('#registerPage').toggle(500)
+})
 
-closeWindow2.addEventListener("click", () => {
-  modalLogin.classList.remove("show");
-});
+$('#closeRegister').on('click', function () {
+  $('#registerPage').hide(400)
+})
+
+$('#close2').on('click', function () {
+  $('#loginPage').hide(400)
+})
+
+$('#close').on('click', function () {
+  $('#loginPage').hide(400)
+})
 
 //rotar tarjeta Login
 const loginTeacher = document.getElementById("studentUsers");
@@ -30,17 +33,7 @@ loginStudent.addEventListener("click", () => {
 });
 
 //mostrar Register
-const openRegister = document.getElementById("btnRegister");
-const modalRegister = document.getElementById("registerPage");
-const closeWindowR = document.getElementById("closeRegister");
 
-openRegister.addEventListener("click", () => {
-  modalRegister.classList.add("show");
-});
-
-closeWindowR.addEventListener("click", () => {
-  modalRegister.classList.remove("show");
-});
 
 //registrarprofesor
 

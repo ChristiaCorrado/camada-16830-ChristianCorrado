@@ -15,7 +15,7 @@
   left: 25%;
   bottom: 5%;
   top: 5%;
-  transform: scale(0);
+  display: none;
 }
 
 .formLogin h4{
@@ -61,10 +61,7 @@
 .formLogin button:hover,.form button:active,.form button:focus {
   background: #3786fc;
 }
-.show{
-    transform: scale(1);
-    transition: 1s;
-}
+
 
 .formLogin{
   display: flex;
