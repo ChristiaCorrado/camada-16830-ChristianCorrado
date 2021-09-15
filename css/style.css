@@ -140,3 +140,30 @@ table tr td{
 .mostrarIncorrecto{
   opacity: 1;
 }
+
+.modalNoregistrado{
+  color: black;
+  position: absolute;
+  border-radius: 10px;
+  background: #FFFFFF;
+  height: 10rem;
+  width: 20rem;
+  
+
+}
+
+.btnGral{
+  text-transform: uppercase;
+  outline: 0;
+  background: #0d6efd;
+  width: 80%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  
+}
+ 

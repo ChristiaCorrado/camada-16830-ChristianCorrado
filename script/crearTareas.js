@@ -25,7 +25,7 @@ clickNuevaTarea.addEventListener('click', ()=>{
 
     let obtenerTarea = getDataTarea();
 
-    let id = listaTarea.length;
+    let id = listaTarea.length.toString();
 
     nuevaTarea = new Tarea(id,obtenerTarea)
     
@@ -59,16 +59,6 @@ clickNuevaTarea.addEventListener('click', ()=>{
 }
 })
 
-// const eliminar = (tarea)=>{
-//     const tEncontado = listaTarea.find(listaTarea=> listaTarea.tarea === tarea)
-//     let posTarea = listaTarea.indexOf(tarea)
-//     console.log(posTarea);
-//     const tareaAtachar = document.getElementById(tarea)
-//     tareaAtachar.parentNode.removeChild(tareaAtachar)
-//     listaTarea.splice(posTarea)
-//     console.log(posTarea);
-
-// }
 
 const tachar = (tarea)=>{
     const tEncontado = listaTarea.find(listaTarea=> listaTarea.tarea === tarea)
@@ -79,10 +69,8 @@ const tachar = (tarea)=>{
 const eliminar = (tarea)=>{
     let posTarea = listaTarea.findIndex(elemnto =>{return elemnto.tarea === tarea})
     console.log(posTarea);
-    const tareaAtachar = document.getElementById(tarea)
-    $(`#${tarea}`).fadeOut(1000);
-
-    $(`#${tarea}`).delay(1000).remove()
+    $(`#${tarea}`).fadeOut(1000 , () => { $(`#${tarea}`).remove() })
     listaTarea.splice(posTarea)
     console.log(posTarea);
+
 }

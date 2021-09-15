@@ -52,43 +52,18 @@
         </div>
       </nav>
 
-      <div id="loginPage" class="login-page">
-        <div class="formLogin" id="formLogin">
-          <form
-            class="loginTeacher"
-            id="teacher"
-            onsubmit="event.preventDefault()"
-          >
-            <h4 class="mt-4">Login Teacher</h4>
-            <input id="nameTeacher" type="text" placeholder="Name" />
-            <input id="surnameTeacher" type="text" placeholder="Surname" />
-            <button id="teacherOk" class="mb-3" type="submit">login</button>
-            <button id="close">Close</button>
-            <p class="mt-3 btnChangeUsers" id="teacherUsers">
-              Student <i class="fas fa-chevron-right changeUsers"></i>
-            </p>
-          </form>
-
-          <form
-            class="loginStudent"
-            id="student"
-            onsubmit="event.preventDefault()"
-          >
-            <h4 class="mt-4">Login Student</h4>
-            <input id="nameStudent" type="text" placeholder="Name" />
-            <input id="surnameStudent" type="text" placeholder="Surname" />
-            <button id="studentOk" class="mb-3">login</button>
-            <button id="close2">Close</button>
-            <p class="mt-3 btnChangeUsers" id="studentUsers">
-              Teacher <i class="fas fa-chevron-right changeUsers"></i>
-            </p>
-          </form>
-        </div>
-      </div>
-
       <div class="container containerInstituto">
         <div class="text-center mb-5">
           <h1>Welcome to the Instituto Superior</h1>
+
+          <div id="modal" class="modalNoregistrado">
+            <div class="contenido_oculto">
+                <h2>Ventana Modal con JQuery</h2>
+                <p>Ejemplo de ventana modal creada con el plugin Boxer</p>
+                <a href="#" class="btnGral">Resize</a>
+                <a href="#" class="btnGral">Close</a>
+            </div>
+          </div>
 
           <div id="userLogin"></div>
         </div>
