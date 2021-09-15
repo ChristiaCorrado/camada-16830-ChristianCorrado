@@ -2,7 +2,7 @@ const asignatura =['Matematica','Biologia','Educacion Fisica','Tecnologia','Lite
 const listaAlumnos = [];
 const listaProfesor = [];
 const dias = ['lunes','martes','miercoles','jueves','viernes']
-const listaTarea = [];
+
 const inputs = document.querySelectorAll('#formLogin input')
 
 
@@ -51,13 +51,17 @@ inputs.forEach((input)=>{
 //tomar datos de profesorlist
 function getTeacherData() {
   nombreProfesor = document.getElementById("nameTeacher").value;
+  
   apellidoProfesor = document.getElementById("surnameTeacher").value;
+  
 }
 
 //tomar datos de alumnos
 function getStudentData() {
   nombreAlumno = document.getElementById("nameStudent").value;
   apellidoAlumno = document.getElementById("surnameStudent").value;
+  
+
 }
 
 

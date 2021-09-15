@@ -7,14 +7,26 @@
     <title>Instituto El Superior</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="container-fluid bg-dark firstContainer">
       <nav class="navbar navbar-dark bg-primary navTop container-fluid">
-        <div class="container ">
+        <div class="container">
           <a class="navbar-brand" href="#">Instituto Superior</a>
-          <div class="text-center d-flex justify-content-center align-content-center">
+          <div
+            class="
+              text-center
+              d-flex
+              justify-content-center
+              align-content-center
+            "
+          >
             <ul class="navbar-nav">
               <div class="d-flex">
                 <li class="p-1">
@@ -32,56 +44,82 @@
               </div>
             </ul>
             <li class="p-1 navbar-nav">
-              <button id="btnLogin" class="nav-link btn btn-dark p-1">
-                <strong>Login</strong>
+              <button id="btnLogout" class="nav-link btn btn-dark p-1">
+                <strong>Logout</strong>
               </button>
             </li>
           </div>
         </div>
       </nav>
-      
-      <div id="loginPage" class="login-page ">
+
+      <div id="loginPage" class="login-page">
         <div class="formLogin" id="formLogin">
-          
-          <form class="loginTeacher" id="teacher" onsubmit="event.preventDefault()">
+          <form
+            class="loginTeacher"
+            id="teacher"
+            onsubmit="event.preventDefault()"
+          >
             <h4 class="mt-4">Login Teacher</h4>
-            <input id="nameTeacher" type="text" placeholder="Name"/>
-            <input id="surnameTeacher" type="text" placeholder="Surname"/>
-            <button id="teacherOk" class="mb-3" type="submit" >login</button>
+            <input id="nameTeacher" type="text" placeholder="Name" />
+            <input id="surnameTeacher" type="text" placeholder="Surname" />
+            <button id="teacherOk" class="mb-3" type="submit">login</button>
             <button id="close">Close</button>
-            <p class="mt-3 btnChangeUsers"  id="teacherUsers" >Student <i class="fas fa-chevron-right changeUsers"></i></p>
+            <p class="mt-3 btnChangeUsers" id="teacherUsers">
+              Student <i class="fas fa-chevron-right changeUsers"></i>
+            </p>
           </form>
 
-          <form class="loginStudent" id="student" onsubmit="event.preventDefault()">
+          <form
+            class="loginStudent"
+            id="student"
+            onsubmit="event.preventDefault()"
+          >
             <h4 class="mt-4">Login Student</h4>
-            <input id="nameStudent" type="text" placeholder="Name"/>
-            <input id="surnameStudent" type="text" placeholder="Surname"/>
+            <input id="nameStudent" type="text" placeholder="Name" />
+            <input id="surnameStudent" type="text" placeholder="Surname" />
             <button id="studentOk" class="mb-3">login</button>
             <button id="close2">Close</button>
-            <p class="mt-3 btnChangeUsers"  id="studentUsers">Teacher <i class="fas fa-chevron-right changeUsers"></i></p>         
+            <p class="mt-3 btnChangeUsers" id="studentUsers">
+              Teacher <i class="fas fa-chevron-right changeUsers"></i>
+            </p>
           </form>
         </div>
       </div>
 
       <div class="container containerInstituto">
-        <div class="text-center">
+        <div class="text-center mb-5">
           <h1>Welcome to the Instituto Superior</h1>
 
           <div id="userLogin"></div>
-
         </div>
-
 
         <div class="text-center institutoPic">
-          
+          <div id="userLogin"></div>
+          <h2>Crear Semanal</h2>
+          <div>
+            <select name="dia" id="dia">
+              <option value="">Seleccionar Dia</option>
+              <option value="lunes">Lunes</option>
+              <option value="martes">Martes</option>
+              <option value="miercoles">Miercoles</option>
+              <option value="jueves">Jueves</option>
+              <option value="viernes">Viernes</option>
+            </select>
+            <select name="horaro" id="horario">
+              <option value="">Seleccionar Horario</option>
+              <option value="8-10">8:00 a 10:00</option>
+              <option value="10-12">10:00 a 12:00</option>
+              <option value="12-14">12:00 a 14:00</option>
+              <option value="15-17">15:00 a 17:00</option>
+            </select>
+          </div>
         </div>
       </div>
-
-
     </div>
-
-    <script src="../script/main.js"></script>
+    <script src="../script/jquery/jquery-3.6.0.min.js"></script>
     <script src="../script/clases.js"></script>
+    <script src="../script/main.js"></script>
+    <script src="../script/crearSemanal.js"></script>
+    
   </body>
-
 </html>

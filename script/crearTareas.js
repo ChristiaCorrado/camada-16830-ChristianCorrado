@@ -1,3 +1,15 @@
+
+alumnoLog = sessionStorage.getItem('alumnoLog')
+
+$('#userLogin').prepend(`<h2> Bienvenido Alumno ${alumnoLog} </h2>`);
+
+$('#btnLogout').click( ()=>{
+    sessionStorage.clear()
+    window.location.href = "../index.html"
+})
+
+const listaTarea = [];
+
 const getDataTarea = () => {
     return tarea = document.getElementById("nuevaTarea").value;
 }
@@ -24,7 +36,7 @@ clickNuevaTarea.addEventListener('click', ()=>{
         
     }else{
     
-    listaTarea.push(nuevaTarea);
+        listaTarea.push(nuevaTarea)
 
     const tareaAgendada = document.getElementById("listaTarea")
 
@@ -47,17 +59,30 @@ clickNuevaTarea.addEventListener('click', ()=>{
 }
 })
 
-const eliminar = (tarea)=>{
-    const tEncontado = listaTarea.find(listaTarea=> listaTarea.tarea === tarea)
-    let posTarea = listaTarea.indexOf(tarea)
-    const tareaAtachar = document.getElementById(tarea)
-    tareaAtachar.parentNode.removeChild(tareaAtachar)
-    console.log(posTarea);
+// const eliminar = (tarea)=>{
+//     const tEncontado = listaTarea.find(listaTarea=> listaTarea.tarea === tarea)
+//     let posTarea = listaTarea.indexOf(tarea)
+//     console.log(posTarea);
+//     const tareaAtachar = document.getElementById(tarea)
+//     tareaAtachar.parentNode.removeChild(tareaAtachar)
+//     listaTarea.splice(posTarea)
+//     console.log(posTarea);
 
-}
+// }
 
 const tachar = (tarea)=>{
     const tEncontado = listaTarea.find(listaTarea=> listaTarea.tarea === tarea)
     const tareaAtachar = document.getElementById(tarea)
     tareaAtachar.classList.add("tachar")
+}
+
+const eliminar = (tarea)=>{
+    let posTarea = listaTarea.findIndex(elemnto =>{return elemnto.tarea === tarea})
+    console.log(posTarea);
+    const tareaAtachar = document.getElementById(tarea)
+    $(`#${tarea}`).fadeOut(1000);
+
+    $(`#${tarea}`).delay(1000).remove()
+    listaTarea.splice(posTarea)
+    console.log(posTarea);
 }

@@ -85,7 +85,8 @@ function loginProfesor() {
       if (
         elemento.nombre === nombreProfesor &&
         elemento.apellido === apellidoProfesor
-      ) {
+      ) {        
+        sessionStorage.setItem('profeLog', elemento.apellido)
         alert("esta Registrado");
         window.location.href = "pages/teacher.html";
       } else {
@@ -124,7 +125,7 @@ function loginAlumnos() {
         elemento.nombre === nombreAlumno &&
         elemento.apellido === apellidoAlumno
       ) {
-        alert("esta Registrado");
+        sessionStorage.setItem('alumnoLog', elemento.apellido)
         window.location.href = "pages/student.html";
       } else {
         alert("No se encuentra Registrado");
@@ -144,7 +145,7 @@ const getStudentList = () => {
 };
 
 const getTeacherList = () => {
-  let listaLocalTeacher = localStorage.getItem("profesorRegTeacher");
+  let listaLocalTeacher = localStorage.getItem("profesorRegistrado");
   if (listaLocalTeacher == null) {
     newArrayTeacher = [];
   } else {
@@ -152,3 +153,5 @@ const getTeacherList = () => {
   }
   return newArrayTeacher;
 };
+
+
