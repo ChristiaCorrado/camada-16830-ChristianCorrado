@@ -56,14 +56,7 @@
         <div class="text-center mb-5">
           <h1>Welcome to the Instituto Superior</h1>
 
-          <div id="modal" class="modalNoregistrado">
-            <div class="contenido_oculto">
-                <h2>Ventana Modal con JQuery</h2>
-                <p>Ejemplo de ventana modal creada con el plugin Boxer</p>
-                <a href="#" class="btnGral">Resize</a>
-                <a href="#" class="btnGral">Close</a>
-            </div>
-          </div>
+          
 
           <div id="userLogin"></div>
         </div>
@@ -82,18 +75,37 @@
             </select>
             <select name="horaro" id="horario">
               <option value="">Seleccionar Horario</option>
-              <option value="8-10">8:00 a 10:00</option>
-              <option value="10-12">10:00 a 12:00</option>
-              <option value="12-14">12:00 a 14:00</option>
-              <option value="15-17">15:00 a 17:00</option>
+              <option value="8:00 a 10:00">8:00 a 10:00</option>
+              <option value="8:00 a 10:00">10:00 a 12:00</option>
+              <option value="12:00 a 14:00">12:00 a 14:00</option>
+              <option value="15:00 a 17:00">15:00 a 17:00</option>
             </select>
+            <input type="text" placeholder="Ingrese materia a Registrar">
           </div>
+        </div>
+        <div id="intinerarioEscolar">
+          <table class="horarios text-center ">
+            <tr>
+              <th bgcolor="blue">Hora</th><th>Lunes</th><th>Martes</th><th>Miercoles</th><th>Jueves</th><th>Viernes</th>
+            </tr>
+            <tr>
+              <td>8-10</td><td>Mate</td><td>Mate</td><td>Mate</td><td>Compu</td><td>Mate</td>
+            </tr>
+            <tr>
+              <td>10-12</td><td>Geografia</td><td>Historia</td><td>Geografía</td><td>Historia</td><td>Geografia</td>
+            </tr>
+            <tr>
+              <td>12-14</td><td>Física</td><td>Ingles</td><td>Fisica</td><td >Inglés<br>y<br>Computacion</td><td>Fisica</td>
+            </tr>
+            <tr>
+              <td>15-17</td><td>Anatomia</td><td>Karate</td><td>Karate</td><td>Karate</td>
+            </tr>
+       </table>
         </div>
       </div>
     </div>
     <script src="../script/jquery/jquery-3.6.0.min.js"></script>
     <script src="../script/clases.js"></script>
-    <script src="../script/main.js"></script>
     <script src="../script/crearSemanal.js"></script>
     
   </body>

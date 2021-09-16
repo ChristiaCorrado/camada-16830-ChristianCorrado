@@ -7,6 +7,12 @@ $('#btnRegister').on('click', function () {
   $('#registerPage').toggle(500)
 })
 
+$('#btnNow').on('click', function () {
+  $('#registerPage').toggle(500)
+  $("#loginPage").hide(400)
+})
+
+
 $('#closeRegister').on('click', function () {
   $('#registerPage').hide(400)
 })
@@ -64,17 +70,19 @@ const registrar = ()=>{
     getNewStudentData();
     registrarAlumno();
     localStorage.setItem("alumnoRegistrado", JSON.stringify(listaAlumnos));
+    $('#registerPage').hide(400)
   }else{
     getNewTeacherData();
     registrarProfesor();
     localStorage.setItem("profesorRegistrado", JSON.stringify(listaProfesor));
+    $('#registerPage').hide(400)
   }
 }
 
 //logearse funcionando
 function loginProfesor() {
   if (!localStorage.getItem("profesorRegistrado")) {
-    alert("no esta en el storage");
+    $("#modalNoregistrado").fadeIn(100)
   } else if (localStorage.getItem("profesorRegistrado")) {
     getTeacherList();
 
@@ -87,10 +95,9 @@ function loginProfesor() {
         elemento.apellido === apellidoProfesor
       ) {        
         sessionStorage.setItem('profeLog', elemento.apellido)
-        alert("esta Registrado");
         window.location.href = "pages/teacher.html";
       } else {
-        alert("No se encuentra Registrado");
+        $("#modalNoregistrado").fadeIn(100)
       }
     });
   }
@@ -113,7 +120,7 @@ const registrarAlumno = () => {
 
 function loginAlumnos() {
   if (!localStorage.getItem("alumnoRegistrado")) {
-    alert("no esta en el storage");
+    $("#modalNoregistrado").fadeIn(100)
   } else if (localStorage.getItem("alumnoRegistrado")) {
     getStudentList();
 
@@ -128,10 +135,14 @@ function loginAlumnos() {
         sessionStorage.setItem('alumnoLog', elemento.apellido)
         window.location.href = "pages/student.html";
       } else {
-        alert("No se encuentra Registrado");
+        $("#modalNoregistrado").fadeIn(100)
       }
     });
   }
+}
+
+const closeNR = ()=>{
+  $("#modalNoregistrado").fadeOut(100)
 }
 
 const getStudentList = () => {

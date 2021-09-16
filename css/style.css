@@ -141,22 +141,30 @@ table tr td{
   opacity: 1;
 }
 
-.modalNoregistrado{
+.modalAlert{
   color: black;
   position: absolute;
   border-radius: 10px;
+  border: solid 1px;
   background: #FFFFFF;
   height: 10rem;
-  width: 20rem;
-  
+  width: 25rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: none;
 
 }
 
 .btnGral{
+  position: absolute;
   text-transform: uppercase;
   outline: 0;
+  bottom: 10px;
+  right: 10px;
   background: #0d6efd;
-  width: 80%;
+  width: 80px;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
@@ -164,6 +172,8 @@ table tr td{
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
-  
 }
  
+a{
+  text-decoration: none;
+}
