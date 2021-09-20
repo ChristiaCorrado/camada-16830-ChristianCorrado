@@ -95,4 +95,8 @@ function orderStudents() {
   })
 }
 
+const URLAPI = 'https://api.mercadopago.com/checkout/preferences'
 
+fetch(URLAPI).then(response=>{
+  return response.json
+})

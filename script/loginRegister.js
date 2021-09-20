@@ -38,7 +38,6 @@ loginStudent.addEventListener("click", () => {
   loginCard.classList.remove("rotate");
 });
 
-//mostrar Register
 
 
 //registrarprofesor

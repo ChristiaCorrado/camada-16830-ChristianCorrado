@@ -7,14 +7,27 @@
     <title>Instituto El Superior</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
+
+  <body onload="cargarIntinerario()">
     <div class="container-fluid bg-dark firstContainer">
       <nav class="navbar navbar-dark bg-primary navTop container-fluid">
-        <div class="container ">
+        <div class="container">
           <a class="navbar-brand" href="#">Instituto Superior</a>
-          <div class="text-center d-flex justify-content-center align-content-center">
+          <div
+            class="
+              text-center
+              d-flex
+              justify-content-center
+              align-content-center
+            "
+          >
             <ul class="navbar-nav">
               <div class="d-flex">
                 <li class="p-1">
@@ -36,66 +49,165 @@
                 <strong>Logout</strong>
               </button>
             </li>
-            
           </div>
         </div>
       </nav>
-      
-      <div class="container containerInstituto">
+
+      <div class="container containerInstituto logContainer">
         <div class="text-center">
           <h1>Welcome to the Instituto Superior</h1>
 
           <div id="userLogin"></div>
-
         </div>
 
-
-        <div class="studentContainer container-fluid p-0 m-0 d-flex justify-content-between">
-          
-          <div class="col-lg-4 m-lg-4">
+        <div class="container-fluid p-0 m-0 d-flex justify-content-between row">
+          <div class="col-lg-5 col-md-6 m-2">
             <form id="formTareas" class="" onsubmit="event.preventDefault()">
               <div class="organizadorDeTareas text-center">
-                  <p>ORGANIZADOR DE TAREAS</p>
-                  <input type="text" class="form-control" id="nuevaTarea" placeholder="ingrese nueva tarea">
-                  <div class="d-flex">
-                    <button id="agregar" class="btn btn-primary container-fluid mt-2 m-1">Agregar Tarea</button>
-                    <button id="limpiar" class="btn btn-danger container-fluid mt-2 m-1">Limpiar lista de Tarea</button>
-                  </div>
+                <p>ORGANIZADOR DE TAREAS</p>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nuevaTarea"
+                  placeholder="ingrese nueva tarea"
+                />
+                <div class="d-flex">
+                  <button
+                    id="agregar"
+                    class="btn btn-primary container-fluid mt-2 m-1"
+                  >
+                    Agregar Tarea
+                  </button>
+                  <button
+                    id="limpiar"
+                    class="btn btn-danger container-fluid mt-2 m-1"
+                    onclick="limpiarTarea()"
+                  >
+                    Limpiar lista de Tarea
+                  </button>
+                </div>
               </div>
-
             </form>
 
-            <div id="listaTarea" class="mt-2"></div> 
+            <div id="listaTarea" class="mt"></div>
           </div>
 
-          <div class="col-lg-8 d-flex flex-column">
-            <h1 class="text-center">Horario escolar</h1>
+          <div class="mb-3 col-lg-6 col-md-4">
+            <h2>Crear Semanal</h2>
+            <form id="semanal" action="" onsubmit="event.preventDefault()">
+              <div class="row g-3">
+                <div class="col-lg-6">
+                  <select name="dia" id="dia" class="form-select col">
+                    <option selected>Seleccionar Dia</option>
+                    <option value="l">Lunes</option>
+                    <option value="m">Martes</option>
+                    <option value="mm">Miercoles</option>
+                    <option value="j">Jueves</option>
+                    <option value="v">Viernes</option>
+                  </select>
+                </div>
+                <div class="col-lg-6">
+                  <select name="horaro" id="horario" class="form-select">
+                    <option selected>Seleccionar Horario</option>
+                    <option value="1">8:00 a 10:00</option>
+                    <option value="2">10:00 a 12:00</option>
+                    <option value="3">12:00 a 14:00</option>
+                    <option value="4">15:00 a 17:00</option>
+                  </select>
+                </div>
+                <div>
+                  <input
+                    class="form-control"
+                    id="intinerario"
+                    type="text"
+                    placeholder="Ingrese materia a Registrar"
+                  />
+                </div>
 
-            <table class="horarios text-center  ">
-                <tr>
-                  <th bgcolor="blue">Hora</th><th>Lunes</th><th>Martes</th><th>Miercoles</th><th>Jueves</th><th>Viernes</th>
-                </tr>
-                <tr>
-                  <td>8-10</td><td>Mate</td><td>Mate</td><td>Mate</td><td>Compu</td><td>Mate</td>
-                </tr>
-                <tr>
-                  <td>10-12</td><td>Geografia</td><td>Historia</td><td>Geografía</td><td>Historia</td><td>Geografia</td>
-                </tr>
-                <tr>
-                  <td>12-14</td><td>Física</td><td>Ingles</td><td>Fisica</td><td >Inglés<br>y<br>Computacion</td><td>Fisica</td>
-                </tr>
-                <tr>
-                  <td>15-17</td><td>Anatomia</td><td>Karate</td><td>Karate</td><td>Karate</td>
-                </tr>
-           </table>
+                <div class="col-lg-6">
+                  <button
+                    class="btn btn-info container-fluid"
+                    id="agregarHorarioOK"
+                    onclick="construirTd(getIntinerario())"
+                  >
+                    Agregar Horario
+                  </button>
+                </div>
+                <div class="col-lg-6">
+                  <button
+                    class="btn btn-info container-fluid"
+                    id="grabarOK"
+                    onclick="grabarIntinerario()"
+                  >
+                    Grabar
+                  </button>
+                  
+              </div>
+              <div class="col-lg-12">
+                <button
+                  class="btn btn-danger container-fluid"
+                  id="limpiarOK"
+                  onclick="limpiarSemanal()"
+                >
+                  Limpiar Semanal
+                </button>
+              </div>
+            </form>
           </div>
         </div>
 
-
+        <div id="intinerarioEscolar">
+          <h3 class="text-center">Horario Escolar</h3>
+          <table class="horarios text-center container-fluid" id="tableHorario">
+            <tbody id="tableBody ">
+              <tr>
+                <th bgcolor="blue">Hora</th>
+                <th id="lunes">Lunes</th>
+                <th id="martes">Martes</th>
+                <th id="miercoles">Miercoles</th>
+                <th id="jueves">Jueves</th>
+                <th id="viernes">Viernes</th>
+              </tr>
+              <tr id="1Horario">
+                <td id="turnoUno">8:00hs a 10:00hs</td>
+                <td id="l1"></td>
+                <td id="m1"></td>
+                <td id="mm1"></td>
+                <td id="j1"></td>
+                <td id="v1"></td>
+              </tr>
+              <tr id="2Horario">
+                <td id="turnoDos">10:00hs a 12:00hs</td>
+                <td id="l2"></td>
+                <td id="m2"></td>
+                <td id="mm2"></td>
+                <td id="j2"></td>
+                <td id="v2"></td>
+              </tr>
+              <tr id="3Horario">
+                <td id="turnoTres">12:00hs a 14:00hs</td>
+                <td id="l3"></td>
+                <td id="m3"></td>
+                <td id="mm3"></td>
+                <td id="j3"></td>
+                <td id="v3"></td>
+              </tr>
+              <tr id="4Horario">
+                <td id="turnoCuatro">15:00hs a 17:00hs</td>
+                <td id="l4"></td>
+                <td id="m4"></td>
+                <td id="mm4"></td>
+                <td id="j4"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <script src="../script/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../script/clases.js"></script>
     <script src="../script/crearTareas.js"></script>
+    <script src="../script/crearSemanal.js"></script>
+    <script src="../script/clases.js"></script>
   </body>
 </html>

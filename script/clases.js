@@ -33,3 +33,12 @@ class Tarea {
     this.tarea=tarea|| undefined;
   }
 }
+
+class Semanal{
+  constructor(dia, horario, actividad){
+    this.dia = dia
+    this.horario = horario
+    this.actividad = actividad
+  }
+
+}

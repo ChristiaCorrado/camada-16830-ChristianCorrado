@@ -56,6 +56,7 @@ clickNuevaTarea.addEventListener('click', ()=>{
     });
                 
     tareaAgendada.innerHTML = acumulador;
+    document.getElementById('formTareas').reset();
 }
 })
 
@@ -73,4 +74,9 @@ const eliminar = (tarea)=>{
     listaTarea.splice(posTarea)
     console.log(posTarea);
 
+}
+
+const limpiarTarea = ()=>{
+    listaTarea = []
+    console.log(listaTarea);
 }
