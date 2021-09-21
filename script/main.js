@@ -84,23 +84,12 @@ studentIsLogin.addEventListener('click',()=>{
 
 //https://api.mercadolibre.com//sites/MLA/search?q=
 
-//ordenar alumnos por apellido
-function orderStudents() {
-  listaAlumnos.sort((a1, a2) => {
-    const apellidoA = a1.apellido.toLowerCase();
-    const apellidoB = a2.apellido.toLowerCase();
-  
-    if (apellidoA < apellidoB) {
-      return -1;
-    } else if (apellidoA > apellidoB) {
-      return 1;
-    } else {
-      return 0;
-    }
-  })
-}
 
-const datosDePago ={"items": [
+
+
+
+
+const datosDePagoMensual ={"items": [
   {
     "title": "Cuota Mensual Instituto",
     "description": "Cuota mensual del instituto, conserve el comprobante",
@@ -111,25 +100,43 @@ const datosDePago ={"items": [
     "unit_price": 6000
 }]}
 
+const datosDePagoAnual ={"items": [
+  {
+    "title": "Cuota Mensual Instituto",
+    "description": "Cuota mensual del instituto, conserve el comprobante",
+    "picture_url": "",
+    "category_id": "",
+    "quantity": 1,
+    "currency_id": "ARS",
+    "unit_price": 62000
+}]}
+
+
+
 const URLAPI = 'https://api.mercadopago.com/checkout/preferences'
 
-$.ajaxSetup({
-  headers:{
-    'Authorization': 'Bearer TEST-2474027924977875-091801-56a9203923183a74988c2cc07db8b4b9-140873259',
-    'Content-Type': 'application/json'
-  }
-})
+const pagar = (opcion)=>{
 
-$.post(URLAPI,JSON.stringify(datosDePago),(respuesta, status) => {
-  console.log(respuesta);
-})
 
-fetch(URLAPI,{
-  method: 'POST',
-  headers:{
-    'Authorization': 'Bearer TEST-2474027924977875-091801-56a9203923183a74988c2cc07db8b4b9-140873259',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(datosDePago)
+  let datosDePago = opcion
+
+   $.ajaxSetup({
+     headers:{
+      'Authorization': 'Bearer TEST-2474027924977875-091801-56a9203923183a74988c2cc07db8b4b9-140873259',
+      'Content-Type': 'application/json'
+    }
+  })
   
-})
+  $.post(URLAPI,JSON.stringify(datosDePago),(respuesta, status) => {
+    console.log(respuesta);
+    urlPago = respuesta.init_point
+    console.log(urlPago);
+    window.open(`${urlPago}`);
+  })
+  
+}
+
+
+
+//init_point
+//const urlPago = datosDePago

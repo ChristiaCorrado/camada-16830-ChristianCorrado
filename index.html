@@ -40,7 +40,7 @@
                   <a class="nav-link" href="#cardPricing">Pricing</a>
                 </li>
                 <li class="p-1">
-                  <a class="nav-link" href="#">About</a>
+                  <a class="nav-link" href="#about">About</a>
                 </li>
               </div>
             </ul>
@@ -141,7 +141,7 @@
           >
             <h4>Register</h4>
             <div class="d-flex align-items-center justify-content-around">
-              <label class="mb-1" style="color:black"
+              <label class="mb-1" style="color: black"
                 >Choose an option:
                 <select class="selectE" name="teacherStudnetR">
                   <option id="choose" value="">Choose</option>
@@ -149,12 +149,13 @@
                   <option id="selectStudent" value="student">Student</option>
                 </select>
               </label>
-              
             </div>
             <input id="nameRegister" type="text" placeholder="Name" />
             <input id="surnameRegister" type="text" placeholder="Surname" />
 
-            <button id="registerOK" class="mb-3" onclick="registrar()">Register</button>
+            <button id="registerOK" class="mb-3" onclick="registrar()">
+              Register
+            </button>
             <button id="closeRegister">Close</button>
           </form>
         </div>
@@ -163,54 +164,105 @@
       <div class="container containerInstituto">
         <div id="modalNoregistrado" class="modalAlert">
           <div class="contenido_oculto text-center mt-3">
-              <h4>Has not been registered</h4>
-              <p class="mt-3">Register <a id="btnNow" style="color: blue; cursor: pointer;" onclick="closeNR()">Now!</a></p>
-              <button id="noRegistradoClose" class="btnGral" onclick="closeNR()">Close</button>
+            <h4>Has not been registered</h4>
+            <p class="mt-3">
+              Register
+              <a
+                id="btnNow"
+                style="color: blue; cursor: pointer"
+                onclick="closeNR()"
+                >Now!</a
+              >
+            </p>
+            <button id="noRegistradoClose" class="btnGral" onclick="closeNR()">
+              Close
+            </button>
           </div>
         </div>
 
-        <div id="modalBienvenida" class="modalAlert">
-          <div class="contenido_oculto text-center mt-3">
-              <div id="userLogin"></div>
-              <button id="bienvenida" class="btnGral">Close</button>
+        <div class="principal">
+          <div class="text-center ">
+            <h1>Welcome to the Instituto Superior</h1>
+          </div>
+          <div class="text-center institutoPic">
+            
+          </div>
+          <div class=" container text-center  mt-2 continue">
+            <i class="fas fa-angle-double-down tituloPricing"></i>
           </div>
         </div>
-        <div class="text-center">
-          <h1>Welcome to the Instituto Superior</h1>
-  
-        <div class="text-center institutoPic mb-5">
-          <img src="media/institutoSuperior.jpg" alt="" />
-        </div>
 
-        <div id="cardPricing">
-          <h3 id="Pricing "class="text-center tituloPricing">Pricing</h3>
+     
+        <section id="about" class="text-center about ">
+          <h3 class="text-center tituloPricing">ABOUT</h3>
+          <div class="d-flex justify-content-center">
+            <div>
+              <div class="campusAbout"></div>
+              <div class="cardAbout">
+                <div class="text-center card-title card-header">
+                  <h4>INSTITUTO SUPERIOR</h4>
+                </div>
+                <div class="card-text">
+                  <p class="p-4">
+                    institución educativa que ofrece una educación bilingüe,
+                    español-inglés, a niños desde los 2 a los 18 años. Se ofrece
+                    una educación de primer nivel, sin dejar de lado la
+                    importancia de la formación y el desarrollo del carácter de
+                    los alumnos a través de los sistemas pastorales y de
+                    tutoría. Se atiende a la diversidad, buscando que cada
+                    estudiante desarrolle su propio potencial y fomentando la
+                    mentalidad internacional. El proyecto curricular articula el
+                    plan de la provincia de Córdoba con los programas
+                    internacionales.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+     
+
+        <section id="cardPricing " class="text-center">
+          <h3 id="Pricing " class="text-center tituloPricing">Pricing</h3>
           <div class="d-flex p-3 row justify-content-center">
             <div class="mensual card m-1">
               <div class="p-3 descrip">
-                <h3 id="mensual">Mensual</h3>
-                <ul>
+                <h3 id="mensual" class="card-header">Mensual</h3>
+                <ul class="card-body">
                   <li id="pagoMensual">Pago mensual</li>
                   <li>Debes Presentar el comprobante</li>
                   <li>Abona con cualquier medio de pago</li>
                 </ul>
                 <div class="price2">$6000</div>
-                <button class="btn btn-primary btn-sm rounded-pill">PAGAR</button>
+                <button
+                  id="mensual"
+                  class="btn btn-primary btn-sm rounded-pill"
+                  onclick="pagar(datosDePagoMensual)"
+                >
+                  PAGAR
+                </button>
               </div>
             </div>
-            <div class=" anual card m-1">
+            <div class="anual card m-1">
               <div class="p-3 descrip">
-                <h3 id="anual">Anual</h3>                
+                <h3 id="anual" class="card-header">Anual</h3>
                 <ul>
                   <li id="pagoUnico">Pago unico</li>
                   <li>Ahorro de $10000</li>
                   <li>Abona con cualquier medio de pago</li>
                 </ul>
                 <div class="price1">$62000</div>
-                <button class="btn btn-primary btn-sm rounded-pill">PAGAR</button>
+                <button
+                  id="anual"
+                  class="btn btn-primary btn-sm rounded-pill"
+                  onclick="pagar(datosDePagoAnual)"
+                >
+                  PAGAR
+                </button>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
     <script src="script/jquery/jquery-3.6.0.min.js"></script>

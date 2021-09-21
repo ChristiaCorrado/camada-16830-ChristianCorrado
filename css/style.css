@@ -11,6 +11,15 @@
     color: white;
 }
 
+.principal{
+  height: 100vh;
+  
+}
+
+.continue{
+  height: 100px;
+}
+
 .navTop{
   position: fixed;
   z-index: 1;
@@ -89,9 +98,13 @@
 
 }
 
-.institutoPic img{
-  width: 100%;
-  height: 100%;
+.institutoPic{
+  background-image: url(../media/institutoSuperior.jpg);
+  width:100%;
+  height: 80%;
+  background-position: center;
+  background-size: cover;
+
 }
 
 .loginTeacher{
@@ -263,4 +276,29 @@ li{
   margin: auto;
   right: 25%;
   left: 25%;
+}
+
+.about{
+  position: relative;
+  height: 700px;
+}
+
+.campusAbout{
+  position: absolute;
+  width: 700px;
+  height: 500px;
+  background-image: url(../media/campus.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.cardAbout{
+  color: black;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  top: 10%;
+  margin: auto;
+  right: 85%;
+  background-color: #ffffffa2;
 }
