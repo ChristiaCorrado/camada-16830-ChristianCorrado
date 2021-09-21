@@ -1,10 +1,6 @@
 
-profeLog = sessionStorage.getItem('profeLog')
-
-usuarioLog = `${profeLog}` || `${alumnoLog}`
-
 //bienvenida al profe
-$('#userLoginT').prepend(`<h2> Bienvenido Profesor ${profeLog} </h2>`);
+$('#userLoginT').prepend(`<h2> Bienvenido Profesor ${usuarioLog} </h2>`);
 
 //logout limpiar sessionStore
 $('#btnLogout').click( ()=>{
@@ -61,12 +57,12 @@ const construirTd = (i) =>{
 
 
 
-
+//grabar intinerario
 const grabarIntinerario = () =>{
     localStorage.setItem(usuarioLog ,JSON.stringify(semanal))
 }
 
-
+//cargar intinerario grabado
 
 const cargarIntinerario = ()=>{
 

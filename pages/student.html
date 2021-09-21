@@ -13,6 +13,7 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <script> let usuarioLog = sessionStorage.getItem(`alumnoLog`) </script>
   </head>
 
   <body onload="cargarIntinerario()">
@@ -28,21 +29,16 @@
               align-content-center
             "
           >
+          <div id="modalAgregarTarea" class="modalAlert">
+          <div class="contenido_oculto text-center mt-3">
+              <h4>No tienes tareas ingresadas</h4>
+              
+              <button id="noRegistradoClose" class="btnGral" onclick="closeNR()">Close</button>
+          </div>
+        </div>
             <ul class="navbar-nav">
               <div class="d-flex">
-                <li class="p-1">
-                  <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="p-1">
-                  <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="p-1">
-                  <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="p-1">
-                  <a class="nav-link" href="#">About</a>
-                </li>
-              </div>
+                
             </ul>
             <li class="p-1 navbar-nav">
               <button id="btnLogout" class="nav-link btn btn-dark p-1">
@@ -198,6 +194,7 @@
                 <td id="m4"></td>
                 <td id="mm4"></td>
                 <td id="j4"></td>
+                <td id="v4"></td>
               </tr>
             </tbody>
           </table>
@@ -206,8 +203,8 @@
     </div>
 
     <script src="../script/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../script/crearTareas.js"></script>
-    <script src="../script/crearSemanal.js"></script>
     <script src="../script/clases.js"></script>
+    <script src="../script/crearSemanal.js"></script>
+    <script src="../script/crearTareas.js"></script>
   </body>
 </html>

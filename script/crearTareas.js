@@ -1,4 +1,4 @@
-
+//bienvenida a alumno
 alumnoLog = sessionStorage.getItem('alumnoLog')
 
 $('#userLogin').prepend(`<h2> Bienvenido Alumno ${alumnoLog} </h2>`);
@@ -8,6 +8,7 @@ $('#btnLogout').click( ()=>{
     window.location.href = "../index.html"
 })
 
+// creador de tareas
 const listaTarea = [];
 
 const getDataTarea = () => {
@@ -32,7 +33,7 @@ clickNuevaTarea.addEventListener('click', ()=>{
 
     if (obtenerTarea === '') {
         
-        alert('No tiene tareas para agregar')
+        $("#modalAgregarTarea").fadeIn(100)
         
     }else{
     
@@ -60,15 +61,16 @@ clickNuevaTarea.addEventListener('click', ()=>{
 }
 })
 
-
+//tachar tarea lista
 const tachar = (tarea)=>{
-    const tEncontado = listaTarea.find(listaTarea=> listaTarea.tarea === tarea)
+    
     const tareaAtachar = document.getElementById(tarea)
     tareaAtachar.classList.add("tachar")
 }
 
+//eliminar tarea espesifica
 const eliminar = (tarea)=>{
-    let posTarea = listaTarea.findIndex(elemnto =>{return elemnto.tarea === tarea})
+    let posTarea = listaTarea.findIndex(elemento =>{return elemento.tarea === tarea})
     console.log(posTarea);
     $(`#${tarea}`).fadeOut(1000 , () => { $(`#${tarea}`).remove() })
     listaTarea.splice(posTarea)
@@ -76,7 +78,17 @@ const eliminar = (tarea)=>{
 
 }
 
+//limpiar todas las tareas con un click
 const limpiarTarea = ()=>{
-    listaTarea = []
+    let limpiarDom = document.getElementById('listaTarea')
+    while (limpiarDom.firstChild) {
+        limpiarDom.removeChild(limpiarDom.firstChild);
+      }
+    listaTarea.splice(0, listaTarea.length)
     console.log(listaTarea);
 }
+
+//cerrar Modal
+const closeNR = ()=>{
+    $("#modalAgregarTarea").fadeOut(100)
+  }

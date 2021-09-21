@@ -1,9 +1,19 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+
 .firstContainer {
     color: white;
 }
 
 .navTop{
   position: fixed;
+  z-index: 1;
 }
 
 .login-page {
@@ -16,6 +26,7 @@
   bottom: 5%;
   top: 5%;
   display: none;
+  z-index: 1;
 }
 
 .formLogin h4{
@@ -31,7 +42,7 @@
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-
+  
 }
 
 .formLogin input {
@@ -112,7 +123,7 @@
 }
 
 .logContainer{
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .tachar{
@@ -143,7 +154,7 @@ table tr td{
 
 .modalAlert{
   color: black;
-  position: absolute;
+  position: fixed;
   border-radius: 10px;
   border: solid 1px;
   background: #FFFFFF;
@@ -154,7 +165,7 @@ table tr td{
   right: 0;
   margin: auto;
   display: none;
-
+  z-index: 1;
 }
 
 .btnGral{
@@ -176,4 +187,80 @@ table tr td{
  
 a{
   text-decoration: none;
+}
+
+.tituloPricing{
+  font-size: 40px;
+}
+
+.card{
+  position: relative;
+  border-radius: 10px;
+  width: 400px;
+  height: 420px;
+  z-index:0;
+}
+.card:hover{
+  height: 450px;
+  transition: 0.5s;
+}
+ 
+
+.card h3{
+  font-size: 50px;
+  padding-bottom: 30px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  list-style: none;
+  
+}
+
+.mensual{
+  color:black;
+  background: #FFFFFF;
+}
+.descrip{
+  height: 100%;
+}
+
+.anual{
+  color: black;
+  background: #FFFFFF;
+}
+
+.card button{
+  position: absolute;
+  width: 10rem;
+  height: 3rem;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  bottom: 20px;
+  margin: auto;
+  right: 25%;
+  left: 25%;
+  font-size: 20px;
+}
+
+.price1{
+  position: absolute;
+  font-size: 45px;
+  bottom: 100px;
+  margin: auto;
+  right: 25%;
+  left: 25%;
+}
+
+.price2{
+  position: absolute;
+  font-size: 35px;
+  bottom: 100px;
+  margin: auto;
+  right: 25%;
+  left: 25%;
 }

@@ -13,6 +13,7 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <script>let usuarioLog = sessionStorage.getItem(`profeLog`)</script>
   </head>
   <body onload="cargarIntinerario()">
     <div class="container-fluid bg-dark firstContainer">
@@ -27,22 +28,6 @@
               align-content-center
             "
           >
-            <ul class="navbar-nav">
-              <div class="d-flex">
-                <li class="p-1">
-                  <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="p-1">
-                  <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="p-1">
-                  <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="p-1">
-                  <a class="nav-link" href="#">About</a>
-                </li>
-              </div>
-            </ul>
             <li class="p-1 navbar-nav">
               <button id="btnLogout" class="nav-link btn btn-dark p-1">
                 <strong>Logout</strong>
@@ -162,6 +147,7 @@
                 <td id="m4"></td>
                 <td id="mm4"></td>
                 <td id="j4"></td>
+                <td id="v4"></td>
               </tr>
             </tbody>
           </table>

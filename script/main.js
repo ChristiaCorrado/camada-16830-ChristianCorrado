@@ -78,6 +78,11 @@ studentIsLogin.addEventListener('click',()=>{
   loginAlumnos();
 });
 
+// URLBASE : https://api.mercadopago.com
+// ENDPOINT: /checkout/preferences
+// URL COMPLETA: https://api.mercadopago.com/checkout/preferences 
+
+//https://api.mercadolibre.com//sites/MLA/search?q=
 
 //ordenar alumnos por apellido
 function orderStudents() {
@@ -95,8 +100,36 @@ function orderStudents() {
   })
 }
 
+const datosDePago ={"items": [
+  {
+    "title": "Cuota Mensual Instituto",
+    "description": "Cuota mensual del instituto, conserve el comprobante",
+    "picture_url": "",
+    "category_id": "",
+    "quantity": 1,
+    "currency_id": "ARS",
+    "unit_price": 6000
+}]}
+
 const URLAPI = 'https://api.mercadopago.com/checkout/preferences'
 
-fetch(URLAPI).then(response=>{
-  return response.json
+$.ajaxSetup({
+  headers:{
+    'Authorization': 'Bearer TEST-2474027924977875-091801-56a9203923183a74988c2cc07db8b4b9-140873259',
+    'Content-Type': 'application/json'
+  }
+})
+
+$.post(URLAPI,JSON.stringify(datosDePago),(respuesta, status) => {
+  console.log(respuesta);
+})
+
+fetch(URLAPI,{
+  method: 'POST',
+  headers:{
+    'Authorization': 'Bearer TEST-2474027924977875-091801-56a9203923183a74988c2cc07db8b4b9-140873259',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(datosDePago)
+  
 })
