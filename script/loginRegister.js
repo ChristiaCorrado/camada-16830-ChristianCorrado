@@ -1,22 +1,24 @@
-
+//abre login
 $('#btnLogin').on('click', function () {
   $('#loginPage').toggle(500)
 })
 
+//abre register
 $('#btnRegister').on('click', function () {
   $('#registerPage').toggle(500)
 })
-
+// Si aparece modalNoregistrado al hacer click en now abre register
 $('#btnNow').on('click', function () {
   $('#registerPage').toggle(500)
   $("#loginPage").hide(400)
 })
 
-
+//boton closeRegister
 $('#closeRegister').on('click', function () {
   $('#registerPage').hide(400)
 })
 
+//botones colse del login
 $('#close2').on('click', function () {
   $('#loginPage').hide(400)
 })
@@ -113,6 +115,7 @@ const registrarAlumno = () => {
   nuevoAlumno = new Alumnos($("#nameRegister").val(), $("#surnameRegister").val());
   listaAlumnos.push(nuevoAlumno);
   console.log(listaAlumnos);
+  $("#modalNewReg").fadeIn(100)
 };
 
 //logearse alumnos
@@ -142,6 +145,10 @@ function loginAlumnos() {
 
 const closeNR = ()=>{
   $("#modalNoregistrado").fadeOut(100)
+}
+
+const closeIR = ()=>{
+  $("#modalNewReg").fadeOut(100)
 }
 
 const getStudentList = () => {

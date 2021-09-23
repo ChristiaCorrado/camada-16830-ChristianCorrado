@@ -78,14 +78,13 @@ studentIsLogin.addEventListener('click',()=>{
   loginAlumnos();
 });
 
+
+
 // URLBASE : https://api.mercadopago.com
 // ENDPOINT: /checkout/preferences
 // URL COMPLETA: https://api.mercadopago.com/checkout/preferences 
 
 //https://api.mercadolibre.com//sites/MLA/search?q=
-
-
-
 
 
 
@@ -128,15 +127,8 @@ const pagar = (opcion)=>{
   })
   
   $.post(URLAPI,JSON.stringify(datosDePago),(respuesta, status) => {
-    console.log(respuesta);
     urlPago = respuesta.init_point
-    console.log(urlPago);
     window.open(`${urlPago}`);
   })
   
 }
-
-
-
-//init_point
-//const urlPago = datosDePago
