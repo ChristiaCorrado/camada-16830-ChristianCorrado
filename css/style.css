@@ -25,10 +25,9 @@ h1 {
 
 .navTop{
   Width: 100%;
-  position: fixed;
   z-index: 1;
+  background-color:rgba(21, 29, 51, 0.438)
 }
-
 
 .login-page {
   width: 360px;
@@ -114,6 +113,7 @@ h1 {
 
 }
 
+
 .institutoPic{
   
   background-image: url(../media/institutoSuperior.jpg);
@@ -192,7 +192,7 @@ table tr td{
   right: 0;
   margin: auto;
   display: none;
-  z-index: 1;
+  z-index: 100;
 }
 
 .btnGral{

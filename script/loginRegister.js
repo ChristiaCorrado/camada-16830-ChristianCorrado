@@ -71,11 +71,13 @@ const registrar = ()=>{
     getNewStudentData();
     registrarAlumno();
     localStorage.setItem("alumnoRegistrado", JSON.stringify(listaAlumnos));
+    $("#modalNewReg").fadeIn(100)
     $('#registerPage').hide(400)
   }else{
     getNewTeacherData();
     registrarProfesor();
     localStorage.setItem("profesorRegistrado", JSON.stringify(listaProfesor));
+    $("#modalNewReg").fadeIn(100)
     $('#registerPage').hide(400)
   }
 }
