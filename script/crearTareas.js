@@ -1,7 +1,7 @@
 //bienvenida a alumno
 alumnoLog = sessionStorage.getItem('alumnoLog')
 
-$('#userLogin').prepend(`<h2> Bienvenido Alumno ${alumnoLog} </h2>`);
+$('#userLogin').prepend(`<h2> ¡Te damos la bienvenida, ${alumnoLog}!</h2>`);
 
 $('#btnLogout').click( ()=>{
     sessionStorage.clear()

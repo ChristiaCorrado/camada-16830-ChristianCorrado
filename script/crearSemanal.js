@@ -1,6 +1,6 @@
 
 //bienvenida al profe
-$('#userLoginT').prepend(`<h2> Bienvenido Profesor ${usuarioLog} </h2>`);
+$('#userLoginT').prepend(`<h2> ¡Te damos la bienvenida, ${usuarioLog}!  </h2>`);
 
 //logout limpiar sessionStore
 $('#btnLogout').click( ()=>{
