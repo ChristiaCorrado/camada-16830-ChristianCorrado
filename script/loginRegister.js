@@ -27,6 +27,16 @@ $('#close').on('click', function () {
   $('#loginPage').hide(400)
 })
 
+//desplegar menu movile
+$('#bars').on('click', function () {
+  $('#myLinks').slideToggle(500)
+})
+
+$('#btnNewRegistro').on('click', function () {
+  $('#modalNewReg').hide(500)
+})
+
+
 //rotar tarjeta Login
 const loginTeacher = document.getElementById("studentUsers");
 const loginCard = document.getElementById("formLogin");
@@ -52,7 +62,7 @@ function getNewTeacherData() {
 const registrarProfesor = () => {
   nuevoProfesor = new Profesor(nombreNewProfesor, apellidoNewProfesor);
   listaProfesor.push(nuevoProfesor);
-  console.log(listaProfesor);
+
 };
 
 
@@ -92,7 +102,7 @@ function loginProfesor() {
     getTeacherData();
 
     newArrayTeacher.find((elemento) => {
-      console.log(elemento);
+      
       if (
         elemento.nombre === nombreProfesor &&
         elemento.apellido === apellidoProfesor
@@ -116,7 +126,7 @@ function getNewStudentData() {
 const registrarAlumno = () => {
   nuevoAlumno = new Alumnos($("#nameRegister").val(), $("#surnameRegister").val());
   listaAlumnos.push(nuevoAlumno);
-  console.log(listaAlumnos);
+ 
   $("#modalNewReg").fadeIn(100)
 };
 
@@ -131,7 +141,7 @@ function loginAlumnos() {
     getStudentData();
 
     newArray.find((elemento) => {
-      console.log(elemento);
+      
       if (
         elemento.nombre === nombreAlumno &&
         elemento.apellido === apellidoAlumno

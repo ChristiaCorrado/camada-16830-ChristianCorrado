@@ -17,7 +17,7 @@
   </head>
 
   <body onload="cargarIntinerario()">
-    <div class="container-fluid bg-dark firstContainer">
+    <div class="container-fluid bg-light firstContainer">
       <nav class="navbar navbar-dark bg-primary container-fluid">
         <div class="container">
           <a class="navbar-brand" href="#">Instituto Superior</a>
@@ -41,7 +41,7 @@
                 
             </ul>
             <li class="p-1 navbar-nav">
-              <button id="btnLogout" class="nav-link btn btn-dark p-1">
+              <button id="btnLogout" class=" btn btnInstituto">
                 <strong>Logout</strong>
               </button>
             </li>
@@ -49,15 +49,15 @@
         </div>
       </nav>
 
-      <div class="container containerInstituto logContainer">
+      <div class="container containerPrincipalLogin logContainer">
         
         <div id="userLogin"></div>
 
-        <div class="container-fluid p-0 m-0 d-flex justify-content-between row">
-          <div class="col-lg-5 col-md-6 m-2">
+        <div class="container-fluid pt-5 m-0 d-flex justify-content-between row">
+          <div class="col-lg-5 col-md-6">
             <form id="formTareas" class="" onsubmit="event.preventDefault()">
               <div class="organizadorDeTareas text-center">
-                <p>ORGANIZADOR DE TAREAS</p>
+                <p class="title">Organizador de Tareas</p>
                 <input
                   type="text"
                   class="form-control"
@@ -76,7 +76,7 @@
                     class="btn btn-danger container-fluid mt-2 m-1"
                     onclick="limpiarTarea()"
                   >
-                    Limpiar lista de Tarea
+                    Limpiar lista
                   </button>
                 </div>
               </div>
@@ -86,7 +86,7 @@
           </div>
 
           <div class="mb-3 col-lg-6 col-md-4">
-            <h2>Crear Semanal</h2>
+            <p class="title">Crear Semanal</p>
             <form id="semanal" action="" onsubmit="event.preventDefault()">
               <div class="row g-3">
                 <div class="col-lg-6">
@@ -149,12 +149,12 @@
           </div>
         </div>
 
-        <div id="intinerarioEscolar">
-          <h3 class="text-center">Horario Escolar</h3>
+        <div id="intinerarioEscolar" class="pt-5">
+          <p class="text-center title">Horario Escolar</p>
           <table class="horarios text-center container-fluid" id="tableHorario">
             <tbody id="tableBody ">
               <tr>
-                <th bgcolor="blue">Hora</th>
+                <th>Hora</th>
                 <th id="lunes">Lunes</th>
                 <th id="martes">Martes</th>
                 <th id="miercoles">Miercoles</th>

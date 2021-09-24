@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Instituto El Superior</title>
+    <title>Instituto Superior</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link
@@ -17,6 +17,7 @@
   </head>
   <body>
     <div class="container-fluid bg-dark firstContainer">
+      <!--Modales Login-->
       <div id="loginPage" class="login-page">
         <div class="formLogin" id="formLogin">
           <form
@@ -25,7 +26,7 @@
             autocomplete="off"
             onsubmit="event.preventDefault()"
           >
-            <h4 class="mt-4">Login Teacher</h4>
+            <h4 class="mt-4">Login Profesor</h4>
 
             <input
               id="nameTeacher"
@@ -34,7 +35,7 @@
               name="nameTeacher"
               placeholder="Name"
             />
-            <p id="invalidNameTeacher" class="invalid">Please enter name.</p>
+            <p id="invalidNameTeacher" class="invalid">Ingrese su nombre.</p>
 
             <input
               id="surnameTeacher"
@@ -44,12 +45,12 @@
               placeholder="Surname"
             />
             <p id="invalidSurnameTeacher" class="invalid">
-              Please enter surname.
+              Ingrese su apellido.
             </p>
             <button id="teacherOk" class="mb-3" type="submit">login</button>
             <button id="close">Close</button>
             <p class="mt-3 btnChangeUsers" id="teacherUsers">
-              Student <i class="fas fa-chevron-right changeUsers"></i>
+              Alumno <i class="fas fa-chevron-right changeUsers"></i>
             </p>
           </form>
 
@@ -59,7 +60,7 @@
             autocomplete="off"
             onsubmit="event.preventDefault()"
           >
-            <h4 class="mt-4">Login Student</h4>
+            <h4 class="mt-4">Login Alumnos</h4>
 
             <input
               id="nameStudent"
@@ -68,7 +69,7 @@
               name="nameStudent"
               placeholder="Name"
             />
-            <p id="invalidNameStudent" class="invalid">Please enter name.</p>
+            <p id="invalidNameStudent" class="invalid">Ingrese su nombre.</p>
 
             <input
               id="surnameStudent"
@@ -78,13 +79,13 @@
               placeholder="Surname"
             />
             <p id="invalidSurnameStudent" class="invalid">
-              Please enter surname.
+              Ingrese su apellido.
             </p>
 
             <button id="studentOk" class="mb-3">login</button>
             <button id="close2">Close</button>
             <p class="mt-3 btnChangeUsers" id="studentUsers">
-              Teacher <i class="fas fa-chevron-right changeUsers"></i>
+              Profesores <i class="fas fa-chevron-right changeUsers"></i>
             </p>
           </form>
         </div>
@@ -121,8 +122,7 @@
       </div>
 
       <div class="container-fluid p-0 containerInstituto">
-        
-
+        <!--Modales alert-->
         <div id="modalNoregistrado" class="modalAlert">
           <div class="contenido_oculto text-center mt-3">
             <h4>No se encuentra Registrado</h4>
@@ -142,12 +142,10 @@
         </div>
         <div id="modalNewReg" class="modalAlert">
           <div class="contenido_oculto text-center mt-3">
-            <h4>Is sussesfully registered</h4>
+            <h4>Ya se encuentra Registrado</h4>
             <p class="mt-3">
-              Welcome login
-              <a id="btnNow" style="color: blue; cursor: pointer" onclick=""
-                >Now!</a
-              >
+              Bienvenido, puede iniciar sesion ahora!
+            
             </p>
             <button id="noRegistradoClose" class="btnGral" onclick="closeIR()">
               Close
@@ -157,9 +155,9 @@
 
         <div class="principal bg-dark">
           <div class="text-center institutoPic">
-            <nav class="pt-5 navbar navbar-dark navTop container-fluid">
-              <div class="container">
-                <a class="navbar-brand" href="">Instituto Superior</a>
+            <nav class="navbar navbar-dark container-fluid navTop">
+              <div class="">
+                <a class="title" href="">Instituto Superior</a>
                 <div
                   class="
                     navDerecha
@@ -169,29 +167,34 @@
                     align-content-center
                   "
                 >
-                  <ul class="navbar-nav">
-                    <div class="d-flex">
-                      <li class="p-1">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                      </li>
-                      <li class="p-1">
-                        <a class="nav-link" href="#pricingSection">Precios</a>
-                      </li>
-                      <li class="p-1">
-                        <a class="nav-link" href="#aboutSection">Sobre Nosotros</a>
-                      </li>
-                    </div>
-                  </ul>
-                  <li class="p-1 navbar-nav">
-                    <button id="btnLogin" class="nav-link btn btn-dark p-1">
+                  <div id="menuMov">
+                    <a href="javascript:void(0)" id="bars" class="icon" >
+                      <i class="fas fa-bars"></i>
+                    </a>
+
+                  </div>
+                </div>                
+              </div>
+              <div id="" class="menuDesplegable">
+                <div id="myLinks" class="flex">
+                  <a class="" href="index.html">Inicio</a>
+
+                  <a class="" href="#pricingSection">Precios</a>
+
+                  <a class="" href="#aboutSection">Sobre Nosotros</a>
+                  <div class="btnLog d-flex">
+
+                    <button id="btnLogin" class="btn  btnInstituto">
                       <strong>Login</strong>
                     </button>
-                  </li>
-                  <li class="p-1 navbar-nav">
-                    <button id="btnRegister" class="nav-link btn btn-dark p-1">
+
+                    <button
+                      id="btnRegister"
+                      class="btn btnInstituto "
+                    >
                       <strong>Register</strong>
                     </button>
-                  </li>
+                  </div>
                 </div>
               </div>
             </nav>
@@ -215,7 +218,7 @@
         <section id="aboutSection" class="text-center about">
           <h3 class="text-center tituloPricing">ABOUT</h3>
           <div class="d-flex justify-content-center">
-            <div>
+            <div class="row">
               <div class="campusAbout"></div>
               <div class="cardAbout">
                 <div class="text-center card-title card-header">
@@ -267,7 +270,7 @@
             <div class="anual card m-1">
               <div class="p-3 descrip">
                 <h3 id="anual" class="card-header">Anual</h3>
-                <ul>
+                <ul class="card-body">
                   <li id="pagoUnico">Pago unico</li>
                   <li>Ahorro de $10000</li>
                   <li>Abona con cualquier medio de pago</li>
@@ -285,7 +288,7 @@
           </div>
         </section>
 
-        <div class="sectionFooter" id="footer"></div>
+        <div class="sectionFooter d-flex justify-content-center align-items-center" id="footer">Creado por ChristianCorrado</div>
       </div>
     </div>
     <script src="script/jquery/jquery-3.6.0.min.js"></script>

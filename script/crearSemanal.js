@@ -19,7 +19,7 @@ resultDia = ``
 selectDia.addEventListener('change', (event) => {
     let result = event.target.value
     resultDia = result
-    console.log(resultDia);
+  
 });
 
 
@@ -29,7 +29,7 @@ resultHorario = ``
 selectHorario.addEventListener('change', (event) => {
     let result2 = event.target.value
     resultHorario = result2
-    console.log(resultHorario);
+
 });
 
 

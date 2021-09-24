@@ -71,10 +71,10 @@ const tachar = (tarea)=>{
 //eliminar tarea espesifica
 const eliminar = (tarea)=>{
     let posTarea = listaTarea.findIndex(elemento =>{return elemento.tarea === tarea})
-    console.log(posTarea);
+   
     $(`#${tarea}`).fadeOut(1000 , () => { $(`#${tarea}`).remove() })
     listaTarea.splice(posTarea)
-    console.log(posTarea);
+    
 
 }
 
@@ -85,7 +85,7 @@ const limpiarTarea = ()=>{
         limpiarDom.removeChild(limpiarDom.firstChild);
       }
     listaTarea.splice(0, listaTarea.length)
-    console.log(listaTarea);
+   
 }
 
 //cerrar Modal

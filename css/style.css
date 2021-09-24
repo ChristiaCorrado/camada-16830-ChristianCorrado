@@ -9,6 +9,10 @@
   height: 100vh;
 }
 
+.title{
+  font-size: 36px;
+}
+
 .titleInstituto{
   color: rgba(255,255,255,0.15) !important;
   height: 100%;
@@ -28,14 +32,45 @@ h1 {
   background:#212529!important;
 }
 
+
 .navTop{
-  font-size:1.2em;
-  letter-spacing: 0.5px;
-  Width: 100%;
-  z-index: 1;
-  background-color:rgba(21, 29, 51, 0.438)
+  overflow: hidden;
+  background-color:rgba(21, 29, 51, 0.438);
+  position: relative;
 }
 
+.flex{
+  display: flex;
+}
+
+
+.navTop a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.navTop a.icon {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.btnInstituto{
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left:5px;
+  background-color: #000000;
+}
+
+
+.btnLog button {
+  width: 100%;
+}
 
 .login-page {
   width: 500px;
@@ -50,13 +85,7 @@ h1 {
   z-index: 2;
 }
 
-@media only screen and (min-width: 768px) {
-  .login-page{
-    right: 25%;
-    left: 25%;
-  }
-  
-}
+
 
 .formLogin h4{
   color: #0d6efd;
@@ -154,15 +183,21 @@ h1 {
 }
 
 .horarios{
+  border: 1px solid black;
+}
 
-  border: 4px solid white;
+table{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+table th{
+  border: 1px solid black;
   padding: 4px;
-
-  
 }
 
 table tr td{
-  padding: px 20px;
+  padding: 10px;
+  border: 1px solid black;
 }
 
 .invalid{
@@ -327,6 +362,82 @@ li{
 
 }
 
+.containerPrincipalLogin{
+  color: #000000;
+}
+
 body{
   font-family: roboto,sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .login-page{
+    right: 25%;
+    left: 25%;
+  }
+
+  .navTop{
+    background-color: #f5f5f5;
+    position: fixed;
+    z-index: 1;
+  }
+  .navTop a {
+    color: #000000;
+  }
+
+  #menuMov a:hover {
+    color: black;
+  }
+
+  .navTop a.icon {
+    display: inherit;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+  #myLinks {
+    display: none;
+  }
+
+  h1{
+    font-size: 2.5em;
+  }
+  .about{
+    height: 100%;
+    padding-bottom: 50px;
+  }
+  .campusAbout{
+    position: relative;
+    width: 100%;
+
+  }
+  .cardAbout{
+    position: initial;
+    margin: auto;
+    right: 5%;
+    left: 5%;
+    font-size: 16px;
+  }
+
+  .pricingSection{
+    height:100%;
+    padding-top: 20px;
+  }
+
+  #menuMov{
+    background: black;
+  }
+
+  .menuDesplegable{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+th{
+  background: lightsalmon;
 }
