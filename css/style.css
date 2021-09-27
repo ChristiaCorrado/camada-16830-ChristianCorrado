@@ -441,3 +441,7 @@ body{
 th{
   background: lightsalmon;
 }
+
+.listaAlumnos{
+  width: 100%;
+}

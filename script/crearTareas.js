@@ -1,94 +1,107 @@
 //bienvenida a alumno
-alumnoLog = sessionStorage.getItem('alumnoLog')
+alumnoLog = sessionStorage.getItem("alumnoLog");
 
-$('#userLogin').prepend(`<h2> ¡Te damos la bienvenida, ${alumnoLog}!</h2>`);
+$("#userLogin").prepend(`<h2> ¡Te damos la bienvenida, ${alumnoLog}!</h2>`);
 
-$('#btnLogout').click( ()=>{
-    sessionStorage.clear()
-    window.location.href = "../index.html"
-})
+$("#btnLogout").click(() => {
+  sessionStorage.clear();
+  window.location.href = "../index.html";
+});
 
 // creador de tareas
 const listaTarea = [];
 
 const getDataTarea = () => {
-    return tarea = document.getElementById("nuevaTarea").value;
-}
+  return (tarea = document.getElementById("nuevaTarea").value);
+};
 
-const clickLimpiarTodo = document.getElementById("limpiar")
-clickLimpiarTodo.addEventListener('click', ()=>{
+const clickNuevaTarea = document.getElementById("agregar");
 
-})
+clickNuevaTarea.addEventListener("click", () => {
+  let obtenerTarea = getDataTarea();
 
-const clickNuevaTarea = document.getElementById("agregar")
+  let id = listaTarea.length.toString();
 
-clickNuevaTarea.addEventListener('click', ()=>{
+  nuevaTarea = new Tarea(id, obtenerTarea);
 
-    let obtenerTarea = getDataTarea();
+  if (obtenerTarea === "") {
+    $("#modalAgregarTarea").fadeIn(100);
+  } else {
+    listaTarea.push(nuevaTarea);
 
-    let id = listaTarea.length.toString();
-
-    nuevaTarea = new Tarea(id,obtenerTarea)
+    localStorage.setItem(`listaTarea${alumnoLog}`, JSON.stringify(listaTarea));
     
-
-    if (obtenerTarea === '') {
-        
-        $("#modalAgregarTarea").fadeIn(100)
-        
-    }else{
+    const tareaAgendada = document.getElementById("listaTarea");
     
-        listaTarea.push(nuevaTarea)
+    tareaGenerada = mostrarTareaDom();
 
-    const tareaAgendada = document.getElementById("listaTarea")
+    tareaAgendada.innerHTML = tareaGenerada;
+    document.getElementById("formTareas").reset();
+  }
+});
 
+const mostrarTareaDom = () => {
+  let acumulador = ``;
+  listaTarea.forEach((e) => {
+    acumulador += `<div id="${e.tarea}" class="alert alert-warning  d-flex justify-content-between align-items-center">
+  
+          <p id="tareaCreada" class="m-0">Tarea ${e.tarea} </p>
+          <div class=" m-0 d-flex align-item-center ">
+          <i class="fas fa-check text-success p-1" role="button" onclick="tachar('${e.tarea}')" id="btnListo"></i>
+          <i class="fas fa-times text-danger p-1" role="button" onclick="eliminar('${e.tarea}')" id="btnEliminar"></i>
+          </div>
+          </div>`;
+  });
 
-    let acumulador = ``;
-    listaTarea.forEach(e => {
-
-        acumulador+= `<div id="${e.tarea}" class="alert alert-warning  d-flex justify-content-between align-items-center">
-
-        <p id="tareaCreada" class="m-0">Tarea ${e.tarea} </p>
-        <div class=" m-0 d-flex align-item-center ">
-        <i class="fas fa-check text-success p-1" role="button" onclick="tachar('${e.tarea}')" id="btnListo"></i>
-        <i class="fas fa-times text-danger p-1" role="button" onclick="eliminar('${e.tarea}')" id="btnEliminar"></i>
-        </div>
-        </div>`
-        
-    });
-                
-    tareaAgendada.innerHTML = acumulador;
-    document.getElementById('formTareas').reset();
-}
-})
+  return acumulador;
+};
 
 //tachar tarea lista
-const tachar = (tarea)=>{
-    
-    const tareaAtachar = document.getElementById(tarea)
-    tareaAtachar.classList.add("tachar")
-}
+const tachar = (tarea) => {
+  const tareaAtachar = document.getElementById(tarea);
+  tareaAtachar.classList.add("tachar");
+};
 
 //eliminar tarea espesifica
-const eliminar = (tarea)=>{
-    let posTarea = listaTarea.findIndex(elemento =>{return elemento.tarea === tarea})
-   
-    $(`#${tarea}`).fadeOut(1000 , () => { $(`#${tarea}`).remove() })
-    listaTarea.splice(posTarea)
-    
+const eliminar = (tarea) => {
+  let posTarea = listaTarea.findIndex((elemento) => {
+    return elemento.tarea === tarea;
+  });
 
-}
+  $(`#${tarea}`).fadeOut(1000, () => {
+    $(`#${tarea}`).remove();
+  });
+  
+  listaTarea.splice(posTarea);
+
+  localStorage.setItem(`listaTarea${alumnoLog}`, JSON.stringify(listaTarea));
+
+};
 
 //limpiar todas las tareas con un click
-const limpiarTarea = ()=>{
-    let limpiarDom = document.getElementById('listaTarea')
-    while (limpiarDom.firstChild) {
-        limpiarDom.removeChild(limpiarDom.firstChild);
-      }
-    listaTarea.splice(0, listaTarea.length)
-   
-}
+const limpiarTarea = () => {
+  let limpiarDom = document.getElementById("listaTarea");
+  while (limpiarDom.firstChild) {
+    limpiarDom.removeChild(limpiarDom.firstChild);
+  }
+  listaTarea.splice(0, listaTarea.length);
+  localStorage.removeItem(`listaTarea${alumnoLog}`);
+};
 
 //cerrar Modal
-const closeNR = ()=>{
-    $("#modalAgregarTarea").fadeOut(100)
-  }
+const closeModal = (id) => {
+  $(`#${id}`).fadeOut(100);
+};
+
+const cargarTareas = () => {
+    
+  listaTareaJSON = JSON.parse(localStorage.getItem(`listaTarea${alumnoLog}`));
+  listaTareaJSON.forEach(e => {
+    listaTarea.push(e);
+  });
+  
+  tareaLocalS = mostrarTareaDom();
+  const tareaAgendada = document.getElementById("listaTarea");
+
+  tareaAgendada.innerHTML = tareaLocalS;
+};

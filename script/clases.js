@@ -6,9 +6,10 @@ class Profesor {
 }
 
 class Alumnos {
-  constructor(nombre, apellido, edad) {
+  constructor(nombre, apellido, dni) {
     this.nombre = nombre || undefined;
     this.apellido = apellido || undefined;
+    this.dni = dni || undefined;
   }
 }
 
