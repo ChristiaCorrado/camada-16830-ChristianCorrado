@@ -13,6 +13,7 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/script/jquery/jquery-3.6.0.min.js" defer></script>
   </head>
   <body>
@@ -102,16 +103,22 @@
             <h4>Register</h4>
             <div class="d-flex align-items-center justify-content-around">
               <label class="mb-1" style="color: black"
-                >Choose an option:
+                >Seleccionar :
                 <select class="selectE" name="teacherStudnetR">
-                  <option id="choose" value="">Choose</option>
-                  <option id="selectTeacher" value="teacher">Teacher</option>
-                  <option id="selectStudent" value="student">Student</option>
+                  <option id="choose" >Opción</option>
+                  <option id="selectTeacher" value="teacher">Profesor</option>
+                  <option id="selectStudent" value="student">Alumno</option>
                 </select>
               </label>
             </div>
-            <input id="nameRegister" type="text" placeholder="Name" />
-            <input id="surnameRegister" type="text" placeholder="Surname" />
+            <input id="nameRegister" type="text" placeholder="Name" name="nameRegister"/>
+            <p id="invalidRegisterName" class="invalid">
+              Ingrese su nombre.
+            </p>
+            <input id="surnameRegister" type="text" placeholder="Surname" name="surnameRegister"/>
+            <p id="invalidRegisterSurname" class="invalid">
+              Ingrese su apellido.
+            </p>
 
             <button id="registerOK" class="mb-3" onclick="registrar()">
               Register
@@ -228,7 +235,11 @@
                   <p class="p-4">
                     Instituto superior, es un simulador escolar, podras registrate como profesor o estudiante y acceder al campus virtual
                     Si eres profesor, en el campus, podras generar un intinerario semanal y generar la lista de alumnos.
-                    Si eres alumno, podras crear una agenda de tareas diarias y crear un horario escolar
+                    Si eres alumno, podras crear una agenda de tareas diarias y crear un horario escolar.
+                    Ademas se integra la API de mercado pago para generar el link de pago mensual o anual de un servicio.
+                    Te invito a registrate, y probar este simulador.<br>
+                    <strong>Te invito a registrate, y probar este simulador.</strong>
+
                   </p>
                 </div>
               </div>

@@ -48,14 +48,24 @@ const construirTd = (i) => {
 
 //grabar intinerario
 const grabarIntinerario = () => {
-  localStorage.setItem(usuarioLog, JSON.stringify(semanal));
-  $("#modalTareaGrabada").fadeIn(100);
+  localStorage.setItem(`semanal${usuarioLog}`, JSON.stringify(semanal));
+  grabadoOK()
 };
+
+const grabadoOK = () => {
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Cambios Guardados correctamente',
+    showConfirmButton: false,
+    timer: 1500
+  })
+}
 
 //cargar intinerario grabado
 
 const cargarIntinerario = () => {
-  semanalGuardado = JSON.parse(localStorage.getItem(usuarioLog));
+  semanalGuardado = JSON.parse(localStorage.getItem(`semanal${usuarioLog}`));
 
   semanalGuardado.forEach((e) => {
     actividad = e.actividad;
@@ -67,11 +77,29 @@ const cargarIntinerario = () => {
 };
 
 const limpiarSemanal = () => {
-  localStorage.removeItem(usuarioLog);
-  $('#modalResetSemanal').fadeIn(400)
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+      localStorage.removeItem(`semanal${usuarioLog}`);
+    }
+  })
 };
 
-const cargarDatos = () => {
+//localStorage.removeItem(usuarioLog);
+
+const cargarDatosAlumno = () => {
   cargarIntinerario();
   cargarTareas();
 };
@@ -126,34 +154,24 @@ const mostrarAlumnosDom = () => {
 };
 
 const guardarAlumnos = () => {
-    localStorage.setItem(
-        `listaAlumno${usuarioLog}`,
-        JSON.stringify(listaAlumnoProfesor)
-      );
-      $("#modalAlumnoG").fadeIn(100);
+    grabadoOK()
+    localStorage.setItem(`listaAlumno${usuarioLog}`, JSON.stringify(listaAlumnoProfesor));
+      
 }
 
 const cargarAlumnos = () => {
-  alumnosGuardadoJSON = JSON.parse(
-    localStorage.getItem(`listaAlumno${usuarioLog}`)
-  );
 
-  alumnosGuardadoJSON.forEach((e) => {
-    listaAlumnoProfesor.push(e);
+  alumnosEnLocal = JSON.parse(localStorage.getItem(`listaAlumnocorrado`));
+
+  alumnosEnLocal.forEach((e) => {
+    nuevoAlumnoRegistrado = new Alumnos(e.nombre, e.apellido,e.dni)
+    obtenerAlumno = nuevoAlumnoRegistrado;
+    listaAlumnoProfesor.push(obtenerAlumno);
+    alumnoGenerado = mostrarAlumnosDom();
+
+    alumnoOK.innerHTML = alumnoGenerado;
+
   });
-  const alumnoOK = document.getElementById("alumnoOK");
-
-  alumnoGenerado = mostrarAlumnosDom();
-
-  alumnoOK.innerHTML = alumnoGenerado;
 };
 
-const closeModal = (id) => {
-    $(`#${id}`).fadeOut(100);
-
-};
-
-
-
-// En las mismas vistas al presionar el botón limpiar, elimina solamente el storage pero no el itinerario de la semana, un aviso también estaría bien.
-// Podrías también investigar cómo agregarle Firebase al proyecto para que el itinerario se guarde en una base de datos en la nube (sería algo extra pero podría guiarte si querés hacerlo y necesitas ayuda).
+cargarAlumnos()

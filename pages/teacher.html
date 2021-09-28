@@ -14,6 +14,7 @@
       crossorigin="anonymous"
     />
     <script> let usuarioLog = sessionStorage.getItem(`profeLog`); </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   </head>
   <body onload="cargarDatosTeacher()">
@@ -29,30 +30,7 @@
               align-content-center
             "
           >
-            <div id="modalAlumnoG" class="modalAlert">
-              <div class="contenido_oculto text-center mt-3">
-                  <h4>Excelente!</h4>
-                  <p>Su lista de alumnos se guardo correctamente</p>
-                  
-                  <button class="btnGral" onclick="closeModal('modalAlumnoG')">Close</button>
-              </div>
-            </div>
-
-            <div id="modalTareaGrabada" class="modalAlert">
-              <div class="contenido_oculto text-center mt-3">
-                  <h4>Felicidades!</h4>
-                  <p>Su horario se ha guardado correctamente</p>
-                  <button  class="btnGral" onclick="closeModal('modalTareaGrabada')">Close</button>
-              </div>
-            </div>
-
-            <div id="modalResetSemanal" class="modalAlert">
-              <div class="contenido_oculto text-center mt-3">
-                  <h4></h4>
-                  <p>Su horario ah sido borrado correctamente</p>
-                  <button  class="btnGral" onclick="closeModal('modalResetSemanal')">Close</button>
-              </div>
-            </div>
+          
 
             <li class="p-1 navbar-nav">
               <button id="btnLogout" class="nav-link btn btn-dark p-1">

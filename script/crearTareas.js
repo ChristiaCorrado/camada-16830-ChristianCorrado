@@ -80,18 +80,34 @@ const eliminar = (tarea) => {
 
 //limpiar todas las tareas con un click
 const limpiarTarea = () => {
-  let limpiarDom = document.getElementById("listaTarea");
-  while (limpiarDom.firstChild) {
-    limpiarDom.removeChild(limpiarDom.firstChild);
-  }
-  listaTarea.splice(0, listaTarea.length);
-  localStorage.removeItem(`listaTarea${alumnoLog}`);
+  alertaBorrarTareas()
 };
 
-//cerrar Modal
-const closeModal = (id) => {
-  $(`#${id}`).fadeOut(100);
-};
+const alertaBorrarTareas = () => {
+  Swal.fire({
+    title: 'Completo todas sus tareas?',
+    text: "si tiene pareas pendeintes, no podra recuperarlas",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Borrar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Borrado!',
+        'Sus tareas fueron eliminadas correctamente',
+        'success'
+      )
+      let limpiarDom = document.getElementById("listaTarea");
+      while (limpiarDom.firstChild) {
+        limpiarDom.removeChild(limpiarDom.firstChild);
+      }
+      listaTarea.splice(0, listaTarea.length);
+      localStorage.removeItem(`listaTarea${alumnoLog}`);
+      }
+  })
+}
 
 const cargarTareas = () => {
     

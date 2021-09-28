@@ -13,10 +13,12 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
+    <script src="../script/jquery/jquery-3.6.0.min.js"></script>
     <script> let usuarioLog = sessionStorage.getItem(`alumnoLog`); </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
-  <body onload="cargarDatos()" >
+  <body onload="cargarDatosAlumno()" >
     <div class="container-fluid bg-light firstContainer">
       <nav class="navbar navbar-dark bg-primary container-fluid">
         <div class="container">
@@ -30,22 +32,6 @@
               justify-content-center
               align-content-center
             ">
-            <div id="modalAgregarTarea" class="modalAlert">
-              <div class="contenido_oculto text-center mt-3">
-                  <h4>No tienes tareas ingresadas</h4>
-                  
-                  <button id="noRegistradoClose" class="btnGral" onclick="closeModal('modalAgregarTarea')">Close</button>
-              </div>
-            </div>
-
-            <div id="modalTareaGrabada" class="modalAlert">
-              <div class="contenido_oculto text-center mt-3">
-                  <h4>Felicidades!</h4>
-                  <p>Su horario se ha guardado correctamente</p>
-                  <button id="noRegistradoClose" class="btnGral" onclick="closeModal('modalTareaGrabada')">Close</button>
-              </div>
-            </div>
-                  
               <button id="btnLogout" class=" btn btnInstituto">
                 <strong>Logout</strong>
               </button>        
@@ -203,7 +189,7 @@
       </div>
     </div>
 
-    <script src="../script/jquery/jquery-3.6.0.min.js"></script>
+   
     <script src="../script/clases.js"></script>
     <script src="../script/crearSemanal.js"></script>
     <script src="../script/crearTareas.js"></script>

@@ -1,16 +1,13 @@
-//abre login
+//abre login cierra register
 $('#btnLogin').on('click', function () {
   $('#loginPage').toggle(500)
+  $('#registerPage').hide(400)
 })
 
-//abre register
+//abre register, cierra log
 $('#btnRegister').on('click', function () {
+  $('#loginPage').hide(500)
   $('#registerPage').toggle(500)
-})
-// Si aparece modalNoregistrado al hacer click en now abre register
-$('#btnNow').on('click', function () {
-  $('#registerPage').toggle(500)
-  $("#loginPage").hide(400)
 })
 
 //boton closeRegister
@@ -27,7 +24,7 @@ $('#close').on('click', function () {
   $('#loginPage').hide(400)
 })
 
-//desplegar menu movile
+//desplegar menu movil
 $('#bars').on('click', function () {
   $('#myLinks').slideToggle(500)
 })
@@ -55,14 +52,24 @@ loginStudent.addEventListener("click", () => {
 //registrarprofesor
 
 function getNewTeacherData() {
+
   nombreNewProfesor = document.getElementById("nameRegister").value;
   apellidoNewProfesor = document.getElementById("surnameRegister").value;
+  
+}
+
+const alertaVacio = () => {
+
+  Swal.fire({
+    icon: 'error',
+    title: '¡Algo salió mal!',
+    text: 'Debe completar todos los campos',
+  })
 }
 
 const registrarProfesor = () => {
   nuevoProfesor = new Profesor(nombreNewProfesor, apellidoNewProfesor);
   listaProfesor.push(nuevoProfesor);
-
 };
 
 
@@ -77,25 +84,36 @@ selectElement.addEventListener('change', (event) => {
 });
 
 const registrar = ()=>{
-  if (resultE === 'student') {
+  if (resultE === '') {
+    alertaVacio()
+  } else if(resultE === 'student' ){
     getNewStudentData();
     registrarAlumno();
     localStorage.setItem("alumnoRegistrado", JSON.stringify(listaAlumnos));
-    $("#modalNewReg").fadeIn(100)
+    logOK()
     $('#registerPage').hide(400)
   }else{
     getNewTeacherData();
     registrarProfesor();
     localStorage.setItem("profesorRegistrado", JSON.stringify(listaProfesor));
-    $("#modalNewReg").fadeIn(100)
+    logOK()
     $('#registerPage').hide(400)
   }
+    
+}
+
+const logOK = () => {
+  Swal.fire(
+    'Bienvenido!',
+    'Puede iniciar sesion',
+    'success'
+  )
 }
 
 //logearse funcionando
 function loginProfesor() {
   if (!localStorage.getItem("profesorRegistrado")) {
-    $("#modalNoregistrado").fadeIn(100)
+    noRegistradoAlert()
   } else if (localStorage.getItem("profesorRegistrado")) {
     getTeacherList();
 
@@ -110,7 +128,7 @@ function loginProfesor() {
         sessionStorage.setItem('profeLog', elemento.apellido)
         window.location.href = "pages/teacher.html";
       } else {
-        $("#modalNoregistrado").fadeIn(100)
+        noRegistradoAlert()
       }
     });
   }
@@ -119,22 +137,34 @@ function loginProfesor() {
 //Register Alumno
 function getNewStudentData() {
   nombreNewStudent = $("#nameRegister").val();
-  
   apellidoNewStudent =  $("#surnameRegister").val();
+  if (nombreNewStudent || apellidoNewStudent === ``) {
+    noRegistradoAlert()
+  }
 }
 
 const registrarAlumno = () => {
   nuevoAlumno = new Alumnos($("#nameRegister").val(), $("#surnameRegister").val());
   listaAlumnos.push(nuevoAlumno);
  
-  $("#modalNewReg").fadeIn(100)
+  registradoOK()
 };
+
+const registradoOK = () => {
+
+  Swal.fire(
+    '¡Registro con exito!',
+    'Ya puede Iniciar sesión!',
+    'success'
+  )
+}
+
 
 //logearse alumnos
 
 function loginAlumnos() {
   if (!localStorage.getItem("alumnoRegistrado")) {
-    $("#modalNoregistrado").fadeIn(100)
+    noRegistradoAlert()
   } else if (localStorage.getItem("alumnoRegistrado")) {
     getStudentList();
 
@@ -149,18 +179,19 @@ function loginAlumnos() {
         sessionStorage.setItem('alumnoLog', elemento.apellido)
         window.location.href = "pages/student.html";
       } else {
-        $("#modalNoregistrado").fadeIn(100)
+        noRegistradoAlert()
       }
     });
   }
 }
 
-const closeNR = ()=>{
-  $("#modalNoregistrado").fadeOut(100)
-}
+const noRegistradoAlert = () => {
 
-const closeIR = ()=>{
-  $("#modalNewReg").fadeOut(100)
+  Swal.fire({
+    icon: 'error',
+    title: '¡Algo salió mal!',
+    text: 'Debe ser usuario Registrado',
+  })
 }
 
 const getStudentList = () => {

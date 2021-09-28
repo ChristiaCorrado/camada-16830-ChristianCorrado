@@ -1,9 +1,7 @@
-const asignatura =['Matematica','Biologia','Educacion Fisica','Tecnologia','Literatura','Musica','Historia','Geografia','Quimica','Fisica'];
 const listaAlumnos = [];
 const listaProfesor = [];
-const dias = ['lunes','martes','miercoles','jueves','viernes']
 
-const inputs = document.querySelectorAll('#formLogin input')
+const inputL = document.querySelectorAll('#loginPage input')
 
 
 const validarLogin = (e)=>{
@@ -31,6 +29,8 @@ const validarLogin = (e)=>{
           document.getElementById("invalidNameStudent").classList.remove("mostrarIncorrecto")
         };
 
+      break;
+
       case "surnameStudent":
         if (e.target.value === '') {
           document.getElementById("invalidSurnameStudent").classList.add("mostrarIncorrecto")
@@ -38,14 +38,51 @@ const validarLogin = (e)=>{
           document.getElementById("invalidSurnameStudent").classList.remove("mostrarIncorrecto")
         };
 
-      break
+      break;
+
+      
   };
 }
 
-inputs.forEach((input)=>{
+inputL.forEach((input)=>{
   input.addEventListener('keyup', validarLogin)
   input.addEventListener('blur', validarLogin)
+  
 })
+
+
+const inputR = document.querySelectorAll('#formRegister input')
+
+const validarRegister = (e) => {
+  switch (e.target.name) {
+
+    case "nameRegister":
+        if (e.target.value === '') {
+          document.getElementById("invalidRegisterName").classList.add("mostrarIncorrecto")
+        } else {
+          document.getElementById("invalidRegisterName").classList.remove("mostrarIncorrecto")
+        };
+      break;
+
+      case "surnameRegister":
+        if (e.target.value === '') {
+          
+          document.getElementById("invalidRegisterSurname").classList.add("mostrarIncorrecto")
+        } else {
+          document.getElementById("invalidRegisterSurname").classList.remove("mostrarIncorrecto")
+        };
+
+      break;
+  }
+
+}
+
+inputR.forEach((input)=>{
+  input.addEventListener('keyup', validarRegister)
+  input.addEventListener('blur', validarRegister)
+})
+
+
 
 
 //tomar datos de profesorlist
