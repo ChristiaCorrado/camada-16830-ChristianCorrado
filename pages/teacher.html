@@ -157,7 +157,7 @@
             </tbody>
           </table>
         </div>
-        <div id="listaAlumnos" class="pb-5 d-flex flex-column justify-content-center ">
+        <div id="listaAlumnos" class="pb-5 d-flex row g-3justify-content-center ">
           
           <div class="title">Registrar Alumnos</div>
           <form id="cargarAlumnos" class=" row g-3 pb-4 justify-content-center" onsubmit="event.preventDefault()">
@@ -188,13 +188,22 @@
                       Grabar
                     </button>
                   </div>
-  
+                  
+                  <div class="col-lg-12">
+                    <button
+                      class="btn btn-danger container-fluid"
+                      id=""
+                      onclick="borrarListaAlumno()"
+                    >
+                      Borrar Listado
+                    </button>
+                  </div>
               
             </div>
 
           </form>
 
-          <div class="listaAlumnos row g-3">
+          <div class="row g-3 justify-content-center">
             <div class="d-flex justify-content-around rounded-pill bg-secondary text-white">
               <div id="nombre">Nombre</div>
               <div id="apellido">Apellido</div>

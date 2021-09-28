@@ -450,6 +450,9 @@ th{
   background: lightsalmon;
 }
 
-.listaAlumnos{
-  width: 100%;
+
+
+.boxAlumnos{
+  width: 200px;
+  height: 20px;
 }

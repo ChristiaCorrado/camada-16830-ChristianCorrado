@@ -33,6 +33,7 @@ const getIntinerario = () => {
 
 //construir intineario
 const construirTd = (i) => {
+  
   intinerario = i;
 
   let nuevoSemanal = new Semanal(resultDia, resultHorario, intinerario);
@@ -109,18 +110,33 @@ const cargarDatosTeacher = () => {
   cargarAlumnos();
 };
 
+//alertaVacio
+const alertaVacio = () => {
+
+  Swal.fire({
+    icon: 'error',
+    title: '¡Algo salió mal!',
+    text: 'Debe completar todos los campos',
+  })
+}
 //crear lista de alumnos
 
 const listaAlumnoProfesor = [];
 
 const getDataAlumno = () => {
-  let nuevoAlumnoRegistrado = new Alumnos(
-    document.getElementById("nombre").value,
-    document.getElementById("apellido").value,
-    document.getElementById("dni").value
-  );
 
-  return nuevoAlumnoRegistrado;
+  namePrueba =  document.getElementById("nombre").value,
+  surnamePrueba  = document.getElementById("apellido").value,
+  dniPrueba =  document.getElementById("dni").value
+
+  if (namePrueba === '' || surnamePrueba === '' || dniPrueba === '') {
+    //alertaVacio
+    alertaVacio()
+    document.getElementById("cargarAlumnos").reset();
+  }else {
+    let nuevoAlumnoRegistrado = new Alumnos(namePrueba, surnamePrueba, dniPrueba)
+    return nuevoAlumnoRegistrado;
+  }
 };
 
 const clickRegAlumno = document.getElementById("agregarAlumnoOK");
@@ -143,10 +159,10 @@ clickRegAlumno.addEventListener("click", () => {
 const mostrarAlumnosDom = () => {
   let acumulador = ``;
   listaAlumnoProfesor.forEach((e) => {
-    acumulador += `<li class="d-flex justify-content-around bg-light rounded-pill list-group-item">
-    <div id="nombre">${e.nombre}</div>
-    <div id="apellido">${e.apellido}</div>
-    <div id="dni">${e.dni}</div>
+    acumulador += `<li class="d-flex justify-content-around bg-light rounded-pill list-group-item container-fluid">
+    <div id="nombre" class="boxAlumnos">${e.nombre}</div>
+    <div id="apellido" class="boxAlumnos">${e.apellido}</div>
+    <div id="dni" class="boxAlumnos">${e.dni}</div>
   </li>`;
   });
 
@@ -161,7 +177,7 @@ const guardarAlumnos = () => {
 
 const cargarAlumnos = () => {
 
-  alumnosEnLocal = JSON.parse(localStorage.getItem(`listaAlumnocorrado`));
+  alumnosEnLocal = JSON.parse(localStorage.getItem(`listaAlumno${usuarioLog}`));
 
   alumnosEnLocal.forEach((e) => {
     nuevoAlumnoRegistrado = new Alumnos(e.nombre, e.apellido,e.dni)
@@ -174,4 +190,32 @@ const cargarAlumnos = () => {
   });
 };
 
-cargarAlumnos()
+
+const borrarListaAlumno = () => {
+  Swal.fire({
+    title: 'Borrara su lista de Alumnos?',
+    text: "una vez realizado no podra recuperala",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, borrar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Borrado!',
+        'Su listado fue borrado correctamente',
+        'success'
+      )
+      localStorage.removeItem(`listaAlumno${usuarioLog}`);      
+
+      let limpiarDom = document.getElementById("alumnoOK");
+      while (limpiarDom.firstChild) {
+        limpiarDom.removeChild(limpiarDom.firstChild);
+      }
+
+    }
+  })
+
+}
+
