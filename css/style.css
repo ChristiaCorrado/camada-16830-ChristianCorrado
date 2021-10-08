@@ -342,7 +342,7 @@ li{
   position: absolute;
   width: 700px;
   height: 500px;
-  background-image: url(../media/campus.jpg);
+  background-image: url(../media/campus.jpeg);
   background-position: center;
   background-size: cover;
 }
@@ -372,11 +372,22 @@ body{
   font-family: roboto,sans-serif;
 }
 
+
+
 @media only screen and (max-width: 768px) {
+  .btnLog{
+    flex-direction: column;
+
+  }
+
+  .btnInstituto{
+    margin:5px;
+  }
 
   .login-page{
-    right: 25%;
-    left: 25%;
+    width:250px;
+    right: 0%;
+    left: 0%;
   }
 
   .navTop{
@@ -413,9 +424,12 @@ body{
   .campusAbout{
     position: relative;
     width: 100%;
+    height: 300px;
 
   }
   .cardAbout{
+    width: 300px;
+    height: 550px;
     position: initial;
     margin: auto;
     right: 5%;
@@ -444,7 +458,36 @@ body{
     min-width: 100%;
     left:0
   }
+
+  .mensual {
+    width: 100%;
+    height: 450px;
+    font-size: 16px;
+    padding: 0!important;
+  }
+
+  .anual {
+    width: 100%;
+    height: 450px;
+    font-size: 16px;
+    padding: 0!important;
+  }
+
+  .descrip{
+    padding: 0!important;
+  }
+
+  .card button{
+    right: 5%;
+    left: 5%;
+  }
+
+  .price1{
+    font-size:30px;
+  }
 }
+
+
 
 th{
   background: lightsalmon;
@@ -455,4 +498,9 @@ th{
 .boxAlumnos{
   width: 200px;
   height: 20px;
+}
+
+@media only screen and (max-width: 380) {
+
+ 
 }
